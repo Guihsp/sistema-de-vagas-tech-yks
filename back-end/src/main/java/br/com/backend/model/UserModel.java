@@ -34,6 +34,14 @@ public class UserModel {
         this.vacancies = vacancies;
     }
 
+    public UserModel(String name, String email, String password, String phoneNumber, String information) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.information = information;
+    }
+
     public ArrayList<VacancyModel> getVacancies() {
         return this.vacancies;
     }

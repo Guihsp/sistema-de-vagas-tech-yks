@@ -38,7 +38,7 @@ public class CreateUser extends HttpServlet {
 
             UserModel createdUser = userDAO.createUser(newUser);
 
-            String jsonResponse = gson.toJson(createdUser);
+            String jsonResponse = gson.toJson(new Object[]{createdUser.getEmail(), createdUser.getName(), createdUser.getPhoneNumber(), createdUser.getInformation(), createdUser.getPassword()});
             out.println(jsonResponse);
         } catch (Exception e) {
             e.printStackTrace();
