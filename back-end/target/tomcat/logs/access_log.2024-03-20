@@ -1,8 +1,0 @@
-0:0:0:0:0:0:0:1 - - [20/Mar/2024:11:17:36 -0300] "POST / HTTP/1.1" 200 57 http-bio-8080-exec-2 577
-0:0:0:0:0:0:0:1 - - [20/Mar/2024:11:18:38 -0300] "POST /api/createUser HTTP/1.1" 200 164 http-bio-8080-exec-5 583
-0:0:0:0:0:0:0:1 - - [20/Mar/2024:11:18:44 -0300] "POST /api/createUser HTTP/1.1" 200 164 http-bio-8080-exec-6 3
-0:0:0:0:0:0:0:1 - - [20/Mar/2024:11:20:53 -0300] "POST /api/createUser HTTP/1.1" 200 164 http-bio-8080-exec-2 546
-0:0:0:0:0:0:0:1 - - [20/Mar/2024:11:22:56 -0300] "POST /api/createUser HTTP/1.1" 200 164 http-bio-8080-exec-2 461
-0:0:0:0:0:0:0:1 - - [20/Mar/2024:11:28:05 -0300] "POST /api/createUser HTTP/1.1" 200 164 http-bio-8080-exec-2 601
-0:0:0:0:0:0:0:1 - - [20/Mar/2024:11:29:54 -0300] "POST /api/createUser HTTP/1.1" 200 164 http-bio-8080-exec-2 512
-0:0:0:0:0:0:0:1 - - [20/Mar/2024:11:36:03 -0300] "POST /api/createUser HTTP/1.1" 200 164 http-bio-8080-exec-2 525
