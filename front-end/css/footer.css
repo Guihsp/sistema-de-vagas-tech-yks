@@ -1,0 +1,37 @@
+
+.inicioFooter{
+    border: 1px solid #00A760;
+    display: flex;
+    background-color: #00A760;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.empresaFooter{ 
+    padding-left: 5%;
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-size: 150%;
+}
+
+.descFooter{
+    margin-top: 1.7%;
+    padding-left: 25%;
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 80%;
+}
+
+.icons{
+    padding-left: 22%;
+    display: flex;
+    gap: 20px;
+    width: 5%;
+    height: 2rem;
+    margin-top: 2%;
+}
+
+
+
