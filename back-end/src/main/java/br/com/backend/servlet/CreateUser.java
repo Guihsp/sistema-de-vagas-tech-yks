@@ -22,6 +22,9 @@ public class CreateUser extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "POST");
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type");
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
         Gson gson = new Gson();
@@ -38,7 +41,7 @@ public class CreateUser extends HttpServlet {
 
             UserModel createdUser = userDAO.createUser(newUser);
 
-            String jsonResponse = gson.toJson(new Object[]{createdUser.getEmail(), createdUser.getName(), createdUser.getPhoneNumber(), createdUser.getInformation(), createdUser.getPassword()});
+            String jsonResponse = gson.toJson(new Object[]{createdUser.getEmail(), createdUser.getName()});
             out.println(jsonResponse);
         } catch (Exception e) {
             e.printStackTrace();
@@ -46,5 +49,13 @@ public class CreateUser extends HttpServlet {
             String errorMessage = gson.toJson("Erro ao criar usuário");
             out.println(errorMessage);
         }
+    }
+    @Override
+    protected void doOptions(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        // Configuração do CORS para requisições OPTIONS
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "POST");
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type");
+        response.setStatus(HttpServletResponse.SC_OK);
     }
 }

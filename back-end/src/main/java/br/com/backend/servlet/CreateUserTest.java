@@ -53,7 +53,7 @@ public class CreateUserTest {
         BufferedReader reader = new BufferedReader(new StringReader(jsonUser));
         when(request.getReader()).thenReturn(reader);
 
-        UserModel user = new UserModel("João Silva", "joao.silva@example.com", "senha@123", "+5511987654321", "Desenvolvedor Java experiente");
+        UserModel user = new UserModel("João Silva", "joao.silva@example.com", "senha@123");
         when(userDAO.createUser(any(UserModel.class))).thenReturn(user);
 
         servlet.doPost(request, response);
@@ -64,7 +64,7 @@ public class CreateUserTest {
         System.out.println(jsonResponse);
 
         Gson gson = new Gson();
-        String expectedResponse = gson.toJson(new Object[]{user.getEmail(), user.getName(), user.getPhoneNumber(), user.getInformation(), user.getPassword()});
+        String expectedResponse = gson.toJson(new Object[]{user.getEmail(), user.getName()});
 
         assertEquals(expectedResponse, jsonResponse);
         

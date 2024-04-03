@@ -21,13 +21,11 @@ public class UserDAO {
     }
 
     public UserModel createUser(UserModel user) {
-        String postgresql = "INSERT INTO \"user\" (\"phoneNumber\", \"information\", \"name\", \"email\", \"password\") VALUES (?, ?, ?, ?, ?)";
+        String postgresql = "INSERT INTO \"user\" (\"name\", \"email\", \"password\") VALUES (?, ?, ?)";
         try  (PreparedStatement ps = connection.prepareStatement(postgresql, Statement.RETURN_GENERATED_KEYS)) {
-            ps.setString(1, user.getPhoneNumber());
-            ps.setString(2, user.getInformation());
-            ps.setString(3, user.getName());
-            ps.setString(4, user.getEmail());
-            ps.setString(5, user.getPassword());
+            ps.setString(1, user.getName());
+            ps.setString(2, user.getEmail());
+            ps.setString(3, user.getPassword());
 
             int affectedRows = ps.executeUpdate();
 
