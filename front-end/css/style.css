@@ -25,50 +25,8 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--primary-color);
 }
 
-header .container, .banner .container, .section-infos .container, .section-vagas .container {
+.container, .banner .container, .section-infos .container, .section-vagas .container {
     height: 100%;
-}
-
-header {
-    background: var(--background-color);
-    height: 10vh;
-}
-
-header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-}
-
-.nav-list {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.nav-link {
-    color: var(--font-color);
-    font-size: 0.8rem;
-    font-weight: bold;
-    padding: 5px 0px;
-}
-
-.btn-entrar, .btn-cadastrar {
-    border: 1px solid;
-    padding: 8px 41px;
-    border-radius: 8px;
-}
-
-.btn-entrar {
-    background-color: var(--primary-color);
-    color: var(--tertiary-color);
-    border-color: var(--primary-color);
-}
-
-.btn-cadastrar {
-    border-color: var(--primary-color);
-    color: var(--primary-color);
 }
 
 .banner {
