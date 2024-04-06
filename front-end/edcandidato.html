@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/edcandidato.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <title>Editar dados do candidato</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <img src="./assets/logo.svg" alt="logo">
+                </a>
+
+                <ul class="nav-list">
+                    <img src="assets/profile.svg" alt="">
+                    <li><a href="#" class="nav-link btn-perfil">Vitor Cobeio</a></li>
+                    <li><img src="assets/button Menu.svg" alt=""></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section-usuario">
+        <div class="container">
+
+            <div class="user-info">
+
+                <div class="info-box">
+                    <img src="assets/profile.svg" alt="Imagem de Perfil" class="user-img">
+                    <div class="infos">
+                        <h2 class="user-name">Vitor Cobeio</h2>
+                        <p class="user-location">SP - São Paulo</p>
+                    </div>
+                </div>
+
+                <a href="#" class="btn-user-vagas">Minhas Vagas</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-dados">
+        <div class="container">
+            <h1>Editar Perfil</h1>
+
+            <form action="">
+                <label for="name">*Nome:</label>
+                <input type="text" id="name" placeholder="Ex: Fulano" required>
+
+                <label for="description">*Descrição</label>
+                <input type="text" id="description" placeholder="Ex: Resumo sobre seus objetivos, conquistas e tecnologia." required>
+
+                <label for="location">*Localização</label>
+                <input type="text" id="location" placeholder="Ex: SP - São Paulo" required>
+
+                <label for="email">*Email para contato</label>
+                <input type="email" id="email" placeholder="Ex: fulano@gmail.com" required>
+            </form>
+
+            <a class="btn-save">Salvar</a>
+        </div>
+    </section>
+
+    
+
+</body>
+
+</html>
