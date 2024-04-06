@@ -1,37 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap'); 
+@import 'variables.css'; 
 
-.inicioFooter{
-    border: 1px solid #00A760;
-    display: flex;
-    background-color: #00A760;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    list-style: none; 
+    text-decoration: none; 
+    font-family: var(--font-family); 
+} 
+
+.container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 0.625rem; 
+} 
+    
+body { 
+    background-color: var(--background-color); 
+    color: var(--font-color); 
+} 
+    
+footer {
+    background: var(--primary-color); 
+    color: var(--tertiary-color); 
+    height: 10vh; 
+} 
+    
+footer .container { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    height: 100%; 
+} 
+         
+.social-media { 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
 }
-
-.empresaFooter{ 
-    padding-left: 5%;
-    color: #fff;
-    font-family: "Inter", sans-serif;
-    font-size: 150%;
-}
-
-.descFooter{
-    margin-top: 1.7%;
-    padding-left: 25%;
-    color: #fff;
-    font-family: "Inter", sans-serif;
-    font-weight: 600;
-    font-size: 80%;
-}
-
-.icons{
-    padding-left: 22%;
-    display: flex;
-    gap: 20px;
-    width: 5%;
-    height: 2rem;
-    margin-top: 2%;
-}
-
-
 

@@ -1,32 +1,23 @@
-const head=document.head
-const body=document.body
 
-const estilo="<link rel='stylesheet' href='./css/footer.css'>"
-head.innerHTML+=estilo
+const head = document.querySelector('head'); 
+head.innerHTML += ` <link rel="stylesheet" href="./css/footer.css"> ` 
 
-const rodape = document.createElement("div")
-rodape.setAttribute("class","inicioFooter")
-body.prepend(rodape)
-
-
-
-const emp = 
-"<div class='empresaFooter'>"+
-"<h3>Tech YKS</h3>"+
-"</div>"
-rodape.innerHTML+=emp
-
-
-const  desc =
-"<div class='descFooter'>"+
-"<p>Tech Yks © 2024 - Todos os direitos reservados</p>"+
-"</div>"
-rodape.innerHTML+=desc
-
-const logo=
-"<div class='icons'>"+
-"<img class='iconFilho' src='./assets/acebook.png' title='Facebook'/>"+
-"<img class='iconFilho' src='./assets/instagram.png' title='Instagram'/>"+
-"<img class='iconFilho' src='./assets/linkedin.png' title='Linkedin'/>"+
-"</div>"
-rodape.innerHTML+=logo
+function createFooter() { 
+    const footer = document.createElement('footer'); 
+    footer.innerHTML = 
+    ` <div class="container"> 
+    <a href="#" class="logo"> 
+    <img src="./assets/logo-white.svg" alt="logo"> </a>
+    
+    <p>Tech YKS &copy 2024 - Todos os direitos reservados</p> 
+    
+        <div class="social-media"> 
+            <a href="#"> <img src="./assets/facebook.svg" alt="facebook"> </a> 
+            <a href="#"> <img src="./assets/instagram.svg" alt="instagram"> </a> 
+            <a href="#"> <img src="./assets/linkedin.svg" alt="linkedin"> </a> 
+        </div> 
+    </div>`
+    
+    return footer; } 
+    
+    const footerElement = createFooter(); document.querySelector('footer').appendChild(footerElement);
