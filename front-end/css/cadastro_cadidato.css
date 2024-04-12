@@ -1,0 +1,73 @@
+@import './variables.css';
+@import './global.css';
+@import './header.css';
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.form {
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form h1{
+    color: var(--tertiary-color);
+    font-size: 1.5rem;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.form h1::after {
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 8px;
+    background-color: var(--tertiary-color);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.form button {
+    padding: .5rem 2rem;
+    color: var(--tertiary-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+    background-color: var(--quaternary-color);
+    border: none;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+.form a {
+    color: var(--tertiary-color);
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 350px;
+    color: var(--tertiary-color);
+    font-weight: bold;
+}
+
+form input {
+    margin-bottom: 1rem;
+    padding: .5rem;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+}
+

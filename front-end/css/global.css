@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: var(--font-family);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 0.625rem;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--font-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+}
