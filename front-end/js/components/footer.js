@@ -1,7 +1,3 @@
-
-const head = document.querySelector('head'); 
-head.innerHTML += ` <link rel="stylesheet" href="./css/footer.css"> ` 
-
 function createFooter() { 
     const footer = document.createElement('footer'); 
     footer.innerHTML = 

@@ -1,0 +1,23 @@
+footer {
+    background: var(--primary-color); 
+    color: var(--tertiary-color); 
+    height: 10vh; 
+    position: relative;
+    bottom: 0;
+    width: 100%;
+} 
+    
+footer .container { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    height: 100%; 
+} 
+         
+.social-media { 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+}
+
+

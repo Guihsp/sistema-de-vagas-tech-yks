@@ -1,12 +1,10 @@
-@import './variables.css';
 @import './global.css';
-@import './header.css';
 
 section {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    padding: 3rem 0;
 }
 
 .form {
@@ -58,7 +56,7 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 350px;
+    width: 300px;
     color: var(--tertiary-color);
     font-weight: bold;
 }

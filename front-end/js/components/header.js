@@ -1,8 +1,9 @@
+
 function createHeader() {
     const header = document.createElement('header');
     header.innerHTML = `
         <div class="container">
-            <nav>
+            <nav>   
                 <a href="#" class="logo">
                     <img src="./assets/logo.svg" alt="logo">
                 </a>
@@ -13,6 +14,7 @@ function createHeader() {
                     <li><a href="#" class="nav-link btn-entrar">Entrar</a></li>
                     <li><a href="#" class="nav-link btn-cadastrar">Cadastre-se</a></li>
                 </ul>
+
             </nav>
         </div>
     `;
