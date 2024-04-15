@@ -1,33 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-@import 'variables.css';
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-    text-decoration: none;
-    font-family: var(--font-family);
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 0.625rem;
-}
-
-body {
-    background-color: var(--background-color);
-    color: var(--font-color);
-}
+@import './global.css';
 
 header {
-    margin: 0px 50px 0px 50px;
     background: var(--background-color);
     height: 10vh;
 }
 
-header nav {
+header nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,7 +20,7 @@ header nav {
 
 .nav-link {
     color: var(--font-color);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: bold;
     padding: 5px 0px;
 }
@@ -51,84 +29,150 @@ header nav {
     color: var(--quinary-color);
 }
 
+#btn-menu {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    gap: .4rem;
+}
+
+#hamburger {
+    width: 27px;
+    border-top: 4px solid var(--primary-color);
+    display: block;
+}
+
+#hamburger::after,
+#hamburger::before {
+    content: '';
+    display: block;
+    width: 27px;
+    height: 4px;
+    margin-top: 3px;
+    background-color: var(--primary-color);
+    transition: 0.3s;
+    position: relative;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 10vh;
+    right: 0;
+    width: 250px;
+    background-color: #DEDEDE;
+    padding: 0 1rem;
+    color: var(--font-color);
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 2px 0;
+    font-weight: 400;
+}
+
+.dropdown.active {
+    display: block;
+}
 
 .section-usuario {
     background-color: var(--quaternary-color);
     padding: 1.5rem 0;
 }
 
-.user-info {
+.section-usuario .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 .info-box {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
     gap: 10px;
     color: var(--tertiary-color);
 }
 
-.user-img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+.info-box .user-img {
+    width: 50px;
+    height: 50px;
+}
+
+.user-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--tertiary-color);
+}
+
+.user-location {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
 }
 
 .btn-user-vagas {
     background-color: var(--primary-color);
-    color: var(--tertiary-color);
-    padding: 0.6rem 1.3rem;
+    color: var(--background-color);
+    padding: 0.5rem 1rem;
     font-weight: 500;
     cursor: pointer;
 }
 
-.section-dados .container {
-    padding: 1.5rem 0;
+.section-dados .container{
+    padding: 2rem 0;
 }
-
 
 .section-dados h1 {
-    color: var(--primary-color);
     font-size: 1.5rem;
-    position: relative;
-    text-align: left;
-}
+    font-weight: 600;
+    margin-bottom: 1rem;
+} 
 
 .section-dados h1::after {
     content: '';
-    position: absolute;
-    width: 50px;
+    display: block;
+    width: 70px;
     height: 5px;
     background-color: var(--primary-color);
-    left: 0;
-    bottom: -5px;
 }
 
-.section-dados form {
+form {
+    width: 70%;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--quaternary-color);
+}
+
+form input {
     width: 100%;
-}
-
-.section-dados form label {
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-.section-dados form input {
     padding: 0.5rem;
-    margin: 0.5rem 0;
+    margin-bottom: 1rem;
     border: 2px solid var(--quaternary-color);
-    width: 70%;
 }
 
-.btn-save {
+form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 2px solid var(--quaternary-color);
+    resize: none;
+}
+
+.btn-salvar {
+    padding: .7rem 3rem;
     background-color: var(--primary-color);
     color: var(--tertiary-color);
-    padding: 0.6rem 2.5rem;
-    font-weight: 500;
+    border: none;
     cursor: pointer;
+    font-size: 1.2rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }

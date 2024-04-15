@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/edcandidato.css">
-    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/edcandidato.css">
+    <link rel="stylesheet" href="./css/components/footer.css">
     <title>Editar dados do candidato</title>
 </head>
 
@@ -18,10 +18,44 @@
                 </a>
 
                 <ul class="nav-list">
-                    <img src="assets/profile.svg" alt="">
+                    <img src="./assets/profile.svg" alt="">
                     <li><a href="#" class="nav-link btn-perfil">Vitor Cobeio</a></li>
-                    <li><img src="assets/button Menu.svg" alt=""></li>
+                    <li>
+                        <button id="btn-menu">
+                            <span id="hamburger"></span>
+                        </button>
+                    </li>
+
+                    <li>
+                        <ul class="dropdown">
+                            <li>
+                                <a href="#" class="nav-link">
+                                    <img src="./assets/profile.svg" alt="">
+                                    <span>Perfil Candidato</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link">
+                                    <img src="./assets/add.svg" alt="adiciona">
+                                    <span>Minhas Vagas</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link">
+                                    <img src="./assets/list.svg" alt="lista">
+                                    <span>Editar Perfil</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link">
+                                    <img src="./assets/logout.svg" alt="logout">
+                                    <span>Sair</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
+
             </nav>
         </div>
     </header>
@@ -29,18 +63,19 @@
     <section class="section-usuario">
         <div class="container">
 
-            <div class="user-info">
-
-                <div class="info-box">
-                    <img src="assets/profile.svg" alt="Imagem de Perfil" class="user-img">
-                    <div class="infos">
-                        <h2 class="user-name">Vitor Cobeio</h2>
-                        <p class="user-location">SP - São Paulo</p>
-                    </div>
+            <div class="info-box">
+                <img src="assets/profile.svg" alt="Imagem de Perfil" class="user-img">
+                <div class="infos">
+                    <h2 class="user-name">Vitor Cobeio</h2>
+                    <p class="user-location">
+                        <img src="./assets/Location.svg" alt="Localização">
+                        <span class="location">São Paulo - SP</span>
+                    </p>
                 </div>
-
-                <a href="#" class="btn-user-vagas">Minhas Vagas</a>
             </div>
+
+            <a href="#" class="btn-user-vagas">Minhas Vagas</a>
+
         </div>
     </section>
 
@@ -48,12 +83,13 @@
         <div class="container">
             <h1>Editar Perfil</h1>
 
+
             <form action="">
                 <label for="name">*Nome:</label>
                 <input type="text" id="name" placeholder="Ex: Fulano" required>
 
                 <label for="description">*Descrição</label>
-                <input type="text" id="description" placeholder="Ex: Resumo sobre seus objetivos, conquistas e tecnologia." required>
+                <textarea name="description" id="description" cols="30" rows="8" placeholder="Ex: Descreva um pouco sobre você" required></textarea>
 
                 <label for="location">*Localização</label>
                 <input type="text" id="location" placeholder="Ex: SP - São Paulo" required>
@@ -61,12 +97,17 @@
                 <label for="email">*Email para contato</label>
                 <input type="email" id="email" placeholder="Ex: fulano@gmail.com" required>
             </form>
+            <button class="btn-salvar">
+                Salvar
+            </button>
 
-            <a class="btn-save">Salvar</a>
         </div>
     </section>
 
-    
+    <footer></footer>
+
+    <script src="./js/menu.js"></script>
+    <script src="./js/components/footer.js"></script>
 
 </body>
 
