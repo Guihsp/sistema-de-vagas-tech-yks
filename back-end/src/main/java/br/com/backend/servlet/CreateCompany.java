@@ -9,15 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.backend.dao.UserDAO;
-import br.com.backend.model.UserModel;
+import br.com.backend.dao.CompanyDAO;
+import br.com.backend.model.CompanyModel;
 
-@WebServlet("/api/createUser")
-public class CreateUser extends HttpServlet {
-    private UserDAO userDAO;
+@WebServlet("/api/createCompany")
+public class CreateCompany extends HttpServlet {
+    private CompanyDAO CompanyDAO;
 
-    public CreateUser() {
-        this.userDAO = new UserDAO();
+    public CreateCompany() {
+        this.CompanyDAO = new CompanyDAO();
     }
 
     @Override
@@ -37,9 +37,9 @@ public class CreateUser extends HttpServlet {
                 jsonBody.append(line);
             }
 
-            UserModel newUser = gson.fromJson(jsonBody.toString(), UserModel.class);
+            CompanyModel newCompany = gson.fromJson(jsonBody.toString(), CompanyModel.class);
 
-            UserModel createdUser = userDAO.createUser(newUser);
+            CompanyModel createdUser = CompanyDAO.createCompany(newCompany);
 
             String jsonResponse = gson.toJson(new Object[]{createdUser.getEmail(), createdUser.getName()});
             out.println(jsonResponse);
