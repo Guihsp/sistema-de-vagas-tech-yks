@@ -1,93 +1,97 @@
 @import './global.css';
 
-.login { 
-    margin-top: 10%; 
-    text-align: center; 
-    height: 450px; 
-} 
 
-.login > h3 { 
-    padding-top: 12%; 
-    color: #FFFFFF; 
-    font-family: "Inter", sans-serif;
-    margin-bottom: 5%;
- } 
- 
- .login { 
-    text-align: center; 
-    background-color: #00a760; 
-    margin: 7% 42% 0 40%; 
-    border-radius: 8px; 
-    margin-bottom: 9.5%;
-} 
+section .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
 
-.camp { 
-    line-height: 50px; 
-} 
 
-.camp > h5 { 
-    color: #FFFFFF; 
-    font-family: "Inter", sans-serif; 
-    margin-bottom: -4%;
- } 
+.form {
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    padding: 2.5rem 2.7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 480px;
+    height: 550px;
+}
 
- 
- label { 
-    display: block; 
-    margin-right: 63%; 
-    margin-bottom: -7%;
-   
-} 
+.form h3 {
+    color: var(--tertiary-color);
+    font-size: 1.9rem;
+    position: relative;
+    margin-bottom: 60px;
+}
 
-input { 
-    border: 1px solid #FFFFFF; 
-    border-radius: 3px; 
-    height: 30px; 
-    width: 75%; 
-    
-} 
+.form h3::after {
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 8px;
+    background-color: var(--tertiary-color);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
-.recuperar-senha > a{
-    color: #FFFFFF;
-    font-size: 80%;
-    margin-left: 40%;
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
 
+form input {
+    border-radius: 5px;
+    padding: .6rem 1rem;
+    background-color: var(--tertiary-color);
+    color: var(--quaternary-color);
+    margin-bottom: 20px;
+    border: none;
+}
+
+form label {
+    color: var(--tertiary-color);
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-bottom: 2px;
+}
+
+form .link-password{
+    text-align: right;
+    margin-bottom: 20px;
+    color: var(--tertiary-color);
+    font-weight: 500;
+}
+
+.btn {
+    padding: .7rem 1.5rem;
+    width: 200px;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .enter-button{
-    color: #34495E; 
-    background-color: #FFFFFF;
-    margin: 8% 0 0 0;
-    width: 50%;
-    height: 45px;
-    border: 1px solid #FFFFFF;
-    border-radius: 5px; 
-    font-family: "Lexend", sans-serif; 
-    font-size: 18px; 
-    font-weight: 800; 
+    background-color: var(--tertiary-color);
+    color: var(--quaternary-color);
 }
 
-.register-button { 
-    color: #FFFFFF; 
-    background-color: #34495E;
-    margin: 3% 0 5% 0;
-    width: 50%;
-    height: 40px;
-    border: 1px solid #34495E;
-    border-radius: 5px; 
-    font-family: "Lexend", sans-serif; 
-    font-size: 18px; 
-    font-weight: 600; 
-} 
+.register-button {
+    background-color: var(--quaternary-color);
+    color: var(--tertiary-color);
+}
 
-.register-button > p { 
-    margin-top: 0.5%; 
-} 
-
-.login > a { 
-    margin-top: 100%; 
-    font-family: "Inter", sans-serif; 
-    font-size: 12px; 
-    color: #FFFFFF; 
-    text-decoration: none; 
+.link-company {
+    color: var(--tertiary-color);
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 500;
 }

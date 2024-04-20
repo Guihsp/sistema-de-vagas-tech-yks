@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,42 +9,41 @@
     <link rel="stylesheet" href="./css/components/footer.css">
     <title>Login</title>
 </head>
+
 <body>
 
     <header></header>
 
-    <div class="login">
-        <h3>Login Candidato</h3>
+    <section>
+        <div class="container">
 
-        <form action="" class="center">
+            <div class="form">
 
-            <div class="camp">
-                <h5><label for="">Email:</label></h5>
-                <input type="text" id="email" name="email" size="20">
+                <h3>Login Candidato</h3>
 
+                <form action="">
+
+                    <label for="">Email:</label>
+                    <input type="text" id="email" name="email" size="20">
+
+                    <label for="">Senha:</label>
+                    <input type="password" id="senha" name="senha" size="20">
+                    <a href="" class="link-password">Esqueceu a senha?</a>
+                    
+                </form>
+
+                <button class="enter-button btn" id="enterButton" type="button">
+                    Entrar
+                </button>
+
+                <button class="register-button btn" id="cadastrarButton" type="button">
+                    Cadastrar
+                </button>
+
+                <a href="" class="link-company">Sou empresa ></a>
             </div>
-
-            <div class="camp">
-                <h5><label for="">Senha:</label></h5>
-                <input type="password" id="senha" name="senha" size="20">
-            </div>
-
-            <div class="recuperar-senha">
-            <a href="">Esqueceu a senha?</a>
-           </div>
-
-            <button class="enter-button" id="enterButton" type="button">
-                <p>Entrar</p>
-            </button>
-
-            <button class="register-button" id="cadastrarButton" type="button">
-                <p>Cadastrar</p>
-            </button>
-
-
-        </form>
-        <a href="">Sou empresa ></a>
-    </div>
+        </div>
+    </section>
 
     <footer></footer>
 
@@ -51,4 +51,5 @@
     <script src="./js/components/footer.js"></script>
 
 </body>
+
 </html>

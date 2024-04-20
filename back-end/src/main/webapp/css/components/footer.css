@@ -2,8 +2,6 @@ footer {
     background: var(--primary-color); 
     color: var(--tertiary-color); 
     height: 10vh; 
-    position: relative;
-    bottom: 0;
     width: 100%;
 } 
     
