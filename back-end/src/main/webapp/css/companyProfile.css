@@ -1,0 +1,48 @@
+@import './global.css';
+
+
+.section-usuario {
+    background-color: var(--quaternary-color);
+    padding: 1.5rem 0;
+}
+
+.section-usuario .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.info-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--tertiary-color);
+}
+
+.info-box .user-img {
+    width: 50px;
+    height: 50px;
+}
+
+.user-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--tertiary-color);
+}
+
+.user-location {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.btn {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-left: 20px;
+}
+

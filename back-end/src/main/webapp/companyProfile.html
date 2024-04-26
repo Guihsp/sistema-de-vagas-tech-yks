@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/createVacancy.css">
-    <link rel="stylesheet" href="./css/components/footer.css">
     <link rel="stylesheet" href="./css/components/headerLogin.css">
-    <title>Criar Vaga</title>
+    <link rel="stylesheet" href="./css/components/footer.css">
+    <link rel="stylesheet" href="./css/companyProfile.css">
+    <title>Perfil da Empresa</title>
 </head>
-
 <body>
+
     <header>
         <div class="container">
             <nav>
@@ -61,42 +60,39 @@
         </div>
     </header>
 
-    <main>
+    <section class="section-usuario">
         <div class="container">
-            <h1>Criar Vaga</h1>
-            <form>
-                <label for="title">* Título</label>
-                <input type="text" id="title" name="title"
-                    placeholder="Ex: Desenvolvedor(a) + Linguagem + Nível de Experiência" required>
 
-                <label for="description">* Descrição</label>
-                <textarea name="description" id="description" cols="30" rows="10"
-                    placeholder="Quais as principais atividades e responsabilidade do cargo." required></textarea>
+            <div class="info-box">
+                <img src="assets/logo-empresa.svg" alt="Imagem de Perfil" class="user-img">
+                <div class="infos">
+                    <h2 class="user-name">Canes</h2>
+                    <p class="user-location">
+                        <img src="./assets/Location.svg" alt="Localização">
+                        <span class="location">São Paulo - SP</span>
+                    </p>
+                </div>
+            </div>
 
-                <label for="requirements">* Requisitos</label>
-                <textarea name="requirements" id="requirements" cols="30" rows="10"
-                    placeholder="O que o candidato precisa ter para concorrer à vaga." required></textarea>
+            <div class="box-btn">
+                <a href="#" class="btn">Editar Perfil</a>
+                <a href="#" class="btn">Ver Vagas</a>
+            </div>
 
-                <label for="location">* Localização</label>
-                <input type="text" id="location" name="location" placeholder="Ex: São Paulo, SP" required>
-
-                <label for="salary">* Faixa Salário</label>
-                <input type="text" id="salary" name="salary" placeholder="Ex: Até R$2.000,00" required>
-
-            </form>
-
-            <p>**Confira as informações antes de criar a vaga**</p>
-
-            <button class="btn-create">Criar Vaga</button>
         </div>
+    </section>
 
+    <section class="description-company">
+        <div class="container">
+            <h1>Descrição da Empresa</h1>
 
-    </main>
-
+            
+        </div>
+    </section>
+    
     <footer></footer>
 
     <script src="./js/menu.js"></script>
     <script src="./js/components/footer.js"></script>
 </body>
-
 </html>
