@@ -14,15 +14,16 @@ public class UserDAO {
 
     public UserDAO() {
         try {
-            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/seu_banco_de_dados", "seu_usuario", "sua_senha");
+            connection = DriverManager.getConnection("jdbc:postgresql://kesavan.db.elephantsql.com:5432/yhplxddp", "yhplxddp", "9QyVOyvzaonnEoe1oE5K-m6BbwoiQAo_");
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     public UserModel createUser(UserModel user) {
+        UserDAO userDAO = new UserDAO();
         String postgresql = "INSERT INTO \"user\" (\"name\", \"email\", \"password\") VALUES (?, ?, ?)";
-        try  (PreparedStatement ps = connection.prepareStatement(postgresql, Statement.RETURN_GENERATED_KEYS)) {
+        try  (PreparedStatement ps = userDAO.connection.prepareStatement(postgresql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, user.getName());
             ps.setString(2, user.getEmail());
             ps.setString(3, user.getPassword());

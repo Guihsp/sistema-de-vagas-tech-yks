@@ -15,16 +15,16 @@ public class CompanyDAO {
 
     public CompanyDAO() {
         try {
-            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/seu_banco_de_dados",
-                    "seu_usuario", "sua_senha");
+            connection = DriverManager.getConnection("jdbc:postgresql://kesavan.db.elephantsql.com:5432/yhplxddp", "yhplxddp", "9QyVOyvzaonnEoe1oE5K-m6BbwoiQAo_");
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     public CompanyModel createCompany(CompanyModel company) {
+        CompanyDAO companyDAO = new CompanyDAO();
         String postgresql = "INSERT INTO \"company\" (\"name\", \"email\", \"password\") VALUES (?, ?, ?)";
-        try  (PreparedStatement ps = connection.prepareStatement(postgresql, Statement.RETURN_GENERATED_KEYS)) {
+        try  (PreparedStatement ps = companyDAO.connection.prepareStatement(postgresql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, company.getName());
             ps.setString(2, company.getEmail());
             ps.setString(3, company.getPassword());

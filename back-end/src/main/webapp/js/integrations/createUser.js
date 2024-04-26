@@ -4,6 +4,12 @@ function createUser() {
         email: document.getElementById("email").value,
         password: document.getElementById("senha").value,
     };
+    password = document.getElementById("senha").value
+    confirmPassword = document.getElementById("confirmar-senha").value
+    if(password != confirmPassword){
+        alert("Senhas não conferem")
+        return
+    }
 
     const jsonData = JSON.stringify(userData);
 
