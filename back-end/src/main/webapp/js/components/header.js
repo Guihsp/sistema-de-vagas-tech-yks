@@ -4,9 +4,7 @@ function createHeader() {
     header.innerHTML = `
         <div class="container">
             <nav>   
-                <a href="#" class="logo">
-                    <img src="./assets/logo.svg" alt="logo">
-                </a>
+                <img src="./assets/logo.svg" alt="logo">
 
                 <ul class="nav-list">
                     <li><a href="#" class="nav-link">Ver Vagas</a></li>
