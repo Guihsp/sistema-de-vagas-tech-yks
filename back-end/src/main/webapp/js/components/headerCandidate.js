@@ -1,6 +1,36 @@
-import ('../menu.js');
+const getUserByEmail = async () => {
+    return new Promise(async (resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        const email = localStorage.getItem("UserEmail");
+        const url = `http://localhost:8080/api/findUserByEmail/${email}`;
+
+        xhr.open("GET", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                const pessoa = JSON.parse(xhr.responseText);
+                console.log("Usuário encontrado com sucesso!", pessoa);
+                localStorage.setItem("user", JSON.stringify(pessoa));
+                resolve(pessoa);
+            } else {
+                console.error("Erro ao buscar usuário:", xhr.responseText);
+                reject(xhr.responseText);
+            }
+        };
+
+        xhr.onerror = function () {
+            reject("Erro de rede ao buscar usuário.");
+        };
+
+        await xhr.send();
+    });
+};
+
 
 function createHeader() {
+    const infoUser = localStorage.getItem("user");
+    const parsedInfoUser = JSON.parse(infoUser);
     const header = document.createElement('header');
     header.innerHTML = `
     <div class="container">
@@ -12,7 +42,7 @@ function createHeader() {
                 <li>
                     <a href="#" class="nav-link btn-perfil">
                         <img src="./assets/profile.svg" alt="">
-                        Vitor Cobeio
+                        ${parsedInfoUser.name}
                     </a>
                 </li>
 
@@ -61,3 +91,14 @@ function createHeader() {
 
 const headerElement = createHeader();
 document.querySelector('header').appendChild(headerElement);
+
+const btnMenu = () => {
+    const btn = document.querySelector('#btn-menu');
+    const menu = document.querySelector('.dropdown');
+
+    btn.addEventListener('click', () => {
+        menu.classList.toggle('active');
+    });
+}
+
+btnMenu();

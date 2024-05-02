@@ -22,6 +22,8 @@ function createUser() {
     xhr.onload = function () {
         if (xhr.status === 200) {
             console.log("Usuário criado com sucesso!");
+            localStorage.removeItem("UserEmail");
+            localStorage.setItem("UserEmail", userData.email);
         } else {
             console.error("Erro ao criar usuário:", xhr.responseText);
         }

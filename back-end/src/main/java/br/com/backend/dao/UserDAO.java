@@ -12,16 +12,23 @@ import br.com.backend.model.UserModel;
 public class UserDAO {
     private Connection connection;
 
+    String url = "jdbc:postgresql://kesavan.db.elephantsql.com:5432/yhplxddp";
+    String userBd = "yhplxddp";
+    String password = "9QyVOyvzaonnEoe1oE5K-m6BbwoiQAo_";
+
     public UserDAO() {
+    }
+
+    public UserDAO(String url, String user, String password) {
         try {
-            connection = DriverManager.getConnection("jdbc:postgresql://kesavan.db.elephantsql.com:5432/yhplxddp", "yhplxddp", "9QyVOyvzaonnEoe1oE5K-m6BbwoiQAo_");
+            connection = DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     public UserModel createUser(UserModel user) {
-        UserDAO userDAO = new UserDAO();
+        UserDAO userDAO = new UserDAO(url, userBd, password);
         String postgresql = "INSERT INTO \"user\" (\"name\", \"email\", \"password\") VALUES (?, ?, ?)";
         try  (PreparedStatement ps = userDAO.connection.prepareStatement(postgresql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, user.getName());
@@ -47,4 +54,25 @@ public class UserDAO {
         }
         return user;
     }
+
+    public UserModel getUserByEmail(String email) {
+        UserDAO userDAO = new UserDAO(url, userBd, password);
+        UserModel user = new UserModel();
+        String postgresql = "SELECT * FROM \"user\" WHERE email = ?";
+        try  (PreparedStatement ps = userDAO.connection.prepareStatement(postgresql, Statement.RETURN_GENERATED_KEYS)) {
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+
+            rs.next();
+            user.setId(rs.getInt("id"));
+            user.setName(rs.getString("name"));
+            user.setEmail(rs.getString("email"));
+            user.setInformation(rs.getString("information"));
+            user.setPhoneNumber(rs.getString("phoneNumber"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
+
 }
