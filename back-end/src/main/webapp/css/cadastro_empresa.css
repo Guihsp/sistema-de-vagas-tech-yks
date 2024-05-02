@@ -15,6 +15,7 @@ section .container {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 350px;
 }
 
 .form h1{
@@ -53,19 +54,18 @@ section .container {
 }
 
 form {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 300px;
     color: var(--tertiary-color);
     font-weight: bold;
 }
 
 form input {
     margin-bottom: 1rem;
-    padding: .5rem;
+    padding: .5rem .9rem;
     border: none;
     border-radius: 5px;
     width: 100%;
 }
-

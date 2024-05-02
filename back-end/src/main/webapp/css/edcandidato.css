@@ -1,81 +1,5 @@
 @import './global.css';
 
-header {
-    background: var(--background-color);
-    height: 10vh;
-}
-
-header nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-}
-
-.nav-list {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.nav-link {
-    color: var(--font-color);
-    font-size: 0.9rem;
-    font-weight: bold;
-    padding: 5px 0px;
-}
-
-.btn-perfil {
-    color: var(--quinary-color);
-}
-
-#btn-menu {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    gap: .4rem;
-}
-
-#hamburger {
-    width: 27px;
-    border-top: 4px solid var(--primary-color);
-    display: block;
-}
-
-#hamburger::after,
-#hamburger::before {
-    content: '';
-    display: block;
-    width: 27px;
-    height: 4px;
-    margin-top: 3px;
-    background-color: var(--primary-color);
-    transition: 0.3s;
-    position: relative;
-}
-
-.dropdown {
-    display: none;
-    position: absolute;
-    top: 10vh;
-    right: 0;
-    width: 250px;
-    background-color: #DEDEDE;
-    padding: 0 1rem;
-    color: var(--font-color);
-}
-
-.nav-link {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin: 2px 0;
-    font-weight: 400;
-}
-
-.dropdown.active {
-    display: block;
-}
 
 .section-usuario {
     background-color: var(--quaternary-color);
@@ -126,8 +50,6 @@ header nav{
 }
 
 .section-dados h1 {
-    font-size: 1.5rem;
-    font-weight: 600;
     margin-bottom: 1rem;
 } 
 

@@ -46,3 +46,25 @@
     margin-left: 20px;
 }
 
+.description-company{
+    min-height: 80vh;
+    padding: 3rem 0;
+}
+
+.description-company h1 {
+    margin-bottom: 2rem;
+}
+
+.description-company h1::after {
+    content: '';
+    display: block;
+    width: 115px;
+    height: 5px;
+    background-color: var(--primary-color);
+    margin-top: 5px;
+}
+
+.description {
+    width: 70%;
+    padding: 1rem 0;  
+}

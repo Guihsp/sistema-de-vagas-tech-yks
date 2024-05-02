@@ -1,19 +1,21 @@
 function createFooter() { 
     const footer = document.createElement('footer'); 
     footer.innerHTML = 
-    ` <div class="container"> 
-    <a href="#" class="logo"> 
-    <img src="./assets/logo-white.svg" alt="logo"> </a>
+    `
+    <div class="container"> 
+        <img src="./assets/logo-white.svg" alt="logo">
     
-    <p>Tech YKS &copy 2024 - Todos os direitos reservados</p> 
+        <p>Tech YKS &copy 2024 - Todos os direitos reservados</p> 
     
         <div class="social-media"> 
-            <a href="#"> <img src="./assets/facebook.svg" alt="facebook"> </a> 
-            <a href="#"> <img src="./assets/instagram.svg" alt="instagram"> </a> 
-            <a href="#"> <img src="./assets/linkedin.svg" alt="linkedin"> </a> 
+            <img src="./assets/facebook.svg" alt="facebook">
+            <img src="./assets/instagram.svg" alt="instagram">
+            <img src="./assets/linkedin.svg" alt="linkedin">
         </div> 
-    </div>`
-    
-    return footer; } 
-    
+    </div>
+    `
+
+    return footer; 
+}
+
     const footerElement = createFooter(); document.querySelector('footer').appendChild(footerElement);

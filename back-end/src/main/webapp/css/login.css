@@ -1,6 +1,5 @@
 @import './global.css';
 
-
 section .container {
     display: flex;
     justify-content: center;
@@ -12,23 +11,22 @@ section .container {
 .form {
     background-color: var(--primary-color);
     border-radius: 10px;
-    padding: 2.5rem 2.7rem;
+    padding: 2.5rem 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 480px;
-    height: 550px;
+    width: 350px;
 }
 
-.form h3 {
+.form h1 {
     color: var(--tertiary-color);
-    font-size: 1.9rem;
+    font-size: 1.5rem;
     position: relative;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 }
 
-.form h3::after {
+.form h1::after {
     content: '';
     position: absolute;
     width: 70px;
@@ -47,23 +45,21 @@ form {
 
 form input {
     border-radius: 5px;
-    padding: .6rem 1rem;
+    padding: .5rem .9rem;
     background-color: var(--tertiary-color);
     color: var(--quaternary-color);
-    margin-bottom: 20px;
     border: none;
 }
 
 form label {
     color: var(--tertiary-color);
     font-weight: bold;
-    font-size: 1.3rem;
-    margin-bottom: 2px;
+    margin: 10px 0 2px 0;
 }
 
 form .link-password{
     text-align: right;
-    margin-bottom: 20px;
+    margin: 5px 0 20px 0;
     color: var(--tertiary-color);
     font-weight: 500;
 }
@@ -74,7 +70,7 @@ form .link-password{
     border-radius: 5px;
     border: none;
     font-weight: bold;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     margin-bottom: 10px;
     cursor: pointer;
 }
@@ -92,6 +88,5 @@ form .link-password{
 .link-company {
     color: var(--tertiary-color);
     text-align: center;
-    margin-top: 20px;
     font-weight: 500;
 }

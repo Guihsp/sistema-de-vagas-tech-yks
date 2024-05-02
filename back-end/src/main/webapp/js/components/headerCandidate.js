@@ -12,7 +12,7 @@ function createHeader() {
                 <li>
                     <a href="#" class="nav-link btn-perfil">
                         <img src="./assets/profile.svg" alt="">
-                        Canes
+                        Vitor Cobeio
                     </a>
                 </li>
 
