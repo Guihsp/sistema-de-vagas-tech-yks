@@ -1,31 +1,31 @@
-const getUserByEmail = async () => {
-    return new Promise(async (resolve, reject) => {
-        const xhr = new XMLHttpRequest();
-        const email = localStorage.getItem("UserEmail");
-        const url = `http://localhost:8080/api/findUserByEmail/${email}`;
+// const getUserByEmail = async () => {
+//     return new Promise(async (resolve, reject) => {
+//         const xhr = new XMLHttpRequest();
+//         const email = localStorage.getItem("UserEmail");
+//         const url = `http://localhost:8080/api/findUserByEmail/${email}`;
 
-        xhr.open("GET", url, true);
-        xhr.setRequestHeader("Content-Type", "application/json");
+//         xhr.open("GET", url, true);
+//         xhr.setRequestHeader("Content-Type", "application/json");
 
-        xhr.onload = function () {
-            if (xhr.status === 200) {
-                const pessoa = JSON.parse(xhr.responseText);
-                console.log("Usuário encontrado com sucesso!", pessoa);
-                localStorage.setItem("user", JSON.stringify(pessoa));
-                resolve(pessoa);
-            } else {
-                console.error("Erro ao buscar usuário:", xhr.responseText);
-                reject(xhr.responseText);
-            }
-        };
+//         xhr.onload = function () {
+//             if (xhr.status === 200) {
+//                 const pessoa = JSON.parse(xhr.responseText);
+//                 console.log("Usuário encontrado com sucesso!", pessoa);
+//                 localStorage.setItem("user", JSON.stringify(pessoa));
+//                 resolve(pessoa);
+//             } else {
+//                 console.error("Erro ao buscar usuário:", xhr.responseText);
+//                 reject(xhr.responseText);
+//             }
+//         };
 
-        xhr.onerror = function () {
-            reject("Erro de rede ao buscar usuário.");
-        };
+//         xhr.onerror = function () {
+//             reject("Erro de rede ao buscar usuário.");
+//         };
 
-        await xhr.send();
-    });
-};
+//         await xhr.send();
+//     });
+// };
 
 
 function createHeader() {

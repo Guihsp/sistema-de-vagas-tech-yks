@@ -24,6 +24,7 @@ function createUser() {
             console.log("Usuário criado com sucesso!");
             localStorage.removeItem("UserEmail");
             localStorage.setItem("UserEmail", userData.email);
+            getUserByEmail();
         } else {
             console.error("Erro ao criar usuário:", xhr.responseText);
         }
@@ -35,6 +36,35 @@ function createUser() {
 
     xhr.send(jsonData);
 }
+
+const getUserByEmail = async () => {
+    return new Promise(async (resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        const email = localStorage.getItem("UserEmail");
+        const url = `http://localhost:8080/api/findUserByEmail/${email}`;
+
+        xhr.open("GET", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                const pessoa = JSON.parse(xhr.responseText);
+                console.log("Usuário encontrado com sucesso!", pessoa);
+                localStorage.setItem("user", JSON.stringify(pessoa));
+                resolve(pessoa);
+            } else {
+                console.error("Erro ao buscar usuário:", xhr.responseText);
+                reject(xhr.responseText);
+            }
+        };
+
+        xhr.onerror = function () {
+            reject("Erro de rede ao buscar usuário.");
+        };
+
+        await xhr.send();
+    });
+};
 
 document.getElementById("cadastrarButton").addEventListener("click", function () {
     createUser();
