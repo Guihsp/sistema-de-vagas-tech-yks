@@ -51,6 +51,7 @@ const getUserByEmail = async () => {
                 const pessoa = JSON.parse(xhr.responseText);
                 console.log("Usuário encontrado com sucesso!", pessoa);
                 localStorage.setItem("user", JSON.stringify(pessoa));
+                window.location.href = "./edcandidato.html";
                 resolve(pessoa);
             } else {
                 console.error("Erro ao buscar usuário:", xhr.responseText);
