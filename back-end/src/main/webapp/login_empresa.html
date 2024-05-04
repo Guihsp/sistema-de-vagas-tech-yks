@@ -6,49 +6,47 @@
     <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/components/header.css">
     <link rel="stylesheet" href="./css/components/footer.css">
-    <title>Login Candidato</title>
+    <title>Login Empresa</title>
 </head>
 <body>
-    
-    <header></header>
 
-    <div class="login">
-        <h3>Login Empresa</h3>
+<header></header>
 
-        <form action="" class="center">
+<section>
+    <div class="container">
 
-            <div class="camp">
-                <h5><label for="">Email:</label></h5>
+        <div class="form">
+
+            <h1>Login Empresa</h1>
+
+            <form action="LoginServlet" method="post">
+
+                <label for="email">Email:</label>
                 <input type="text" id="email" name="email" size="20">
 
-            </div>
-
-            <div class="camp">
-                <h5><label for="">Senha:</label></h5>
+                <label for="senha">Senha:</label>
                 <input type="password" id="senha" name="senha" size="20">
-            </div>
+                <a href="" class="link-password">Esqueceu a senha?</a>
 
-            <div class="recuperar-senha">
-            <a href="">Esqueceu a senha?</a>
-            </div>
+            </form>
 
-            <button class="enter-button" id="enterButton" type="button">
-                <p>Entrar</p>
+            <button class="enter-button btn" type="submit">
+                Entrar
             </button>
 
-            <button class="register-button" id="cadastrarButton" type="button">
-                <p>Cadastrar</p>
+            <button class="register-button btn" id="cadastrarButton" type="button">
+                Cadastrar
             </button>
 
-
-        </form>
-        <a href="">Sou empresa ></a>
+            <a href="" class="link-company">Sou empresa ></a>
+        </div>
     </div>
+</section>
 
-    <footer></footer>
+<footer></footer>
 
-    <script src="./js/components/header.js"></script>
-    <script src="./js/components/footer.js"></script>
+<script src="./js/components/header.js"></script>
+<script src="./js/components/footer.js"></script>
 
 </body>
 </html>

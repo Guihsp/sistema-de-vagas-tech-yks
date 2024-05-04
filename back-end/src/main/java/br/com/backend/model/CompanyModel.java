@@ -54,12 +54,20 @@ public class CompanyModel {
         return this.information;
     }
 
+    public void setInformation(String information) {
+        this.information = information;
+    }
+
     public int getId() {
         return this.id;
     }
 
     public String getDescription() {
         return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getPassword() {
@@ -85,4 +93,6 @@ public class CompanyModel {
     public void setEmail(String email) {
         this.email = email;
     }
+
+
 }
