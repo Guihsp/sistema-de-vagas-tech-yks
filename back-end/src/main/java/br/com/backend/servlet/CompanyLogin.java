@@ -31,9 +31,7 @@ public class CompanyLogin extends HttpServlet {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
 
-
-            if (email != null && password != null && !email.isEmpty() && !password.isEmpty()) {
-
+            if (!email.isEmpty() && !password.isEmpty()) {
                 CompanyModel company = companyDAO.login(email, password);
 
                 if (company != null) {
@@ -54,6 +52,9 @@ public class CompanyLogin extends HttpServlet {
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             String errorMessage = gson.toJson("Erro ao fazer login da empresa");
             out.println(errorMessage);
+        } finally {
+            out.flush();
+            out.close();
         }
     }
 

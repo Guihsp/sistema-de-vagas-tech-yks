@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import br.com.backend.model.CompanyModel;
-import br.com.backend.model.UserModel;
 
 
 public class CompanyDAO {
@@ -61,7 +60,8 @@ public class CompanyDAO {
         CompanyModel company = null;
         String query = "SELECT * FROM company WHERE email = ? AND password = ?";
 
-        try (PreparedStatement ps = connection.prepareStatement(query)) {
+        try (Connection connection = DriverManager.getConnection(url, userBd, password);
+             PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setString(1, email);
             ps.setString(2, password);
 
@@ -83,22 +83,29 @@ public class CompanyDAO {
     }
 
     public CompanyModel getCompanyByEmail(String email) {
-        CompanyDAO companyDAO = new CompanyDAO(url, userBd, password);
-        CompanyModel company = new CompanyModel();
-        String postgresql = "SELECT * FROM \"company\" WHERE email = ?";
-        try  (PreparedStatement ps = companyDAO.connection.prepareStatement(postgresql, Statement.RETURN_GENERATED_KEYS)) {
-            ps.setString(1, email);
-            ResultSet rs = ps.executeQuery();
+        CompanyModel company = null;
+        String query = "SELECT * FROM company WHERE email = ?";
 
-            rs.next();
-            company.setId(rs.getInt("id"));
-            company.setName(rs.getString("name"));
-            company.setEmail(rs.getString("email"));
-            company.setDescription(rs.getString("description"));
-            company.setInformation(rs.getString("information"));
+        try (Connection connection = DriverManager.getConnection(url, userBd, password);
+             PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setString(1, email);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    int id = rs.getInt("id");
+                    String name = rs.getString("name");
+                    String password = rs.getString("password");
+                    String description = rs.getString("description");
+                    String information = rs.getString("information");
+
+                    company = new CompanyModel(id, name, email, password, description, information);
+                }
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         return company;
     }
+
 }

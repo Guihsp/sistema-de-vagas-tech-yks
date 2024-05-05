@@ -11,7 +11,9 @@ public class CompanyModel {
     private String information;
     private ArrayList<VacancyModel> vacancies;
 
-    public CompanyModel() {
+    public CompanyModel(String email, String password) {
+        this.email = email;
+        this.password = password;
     }
 
     public CompanyModel(int id, String name, String email, String password, String description, String information) {
