@@ -1,0 +1,9 @@
+.candidate {
+    background-color: var(--quaternary-color);
+    color: var(--tertiary-color);
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .5rem 3.25rem;
+    width: 70%;
+}

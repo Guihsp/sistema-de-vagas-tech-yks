@@ -1,0 +1,96 @@
+@import './global.css';
+
+
+
+
+
+
+
+
+.section-info-vancancy {
+    background-color: var(--quaternary-color);
+    padding: 1.5rem 0;
+}
+
+.section-info-vancancy .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.info-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.infos .vancancy-name {
+    font-size: 1rem;
+    color: var(--tertiary-color);
+}
+
+.infos ul {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--tertiary-color);
+    font-size: 0.9rem;
+}
+
+.infos ul li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.infos ul li img {
+    width: 20px;
+    height: 20px;
+}
+
+.btn {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.section-candidates-list {
+    padding: 2rem 0;
+    min-height: 80vh;
+}
+
+.section-candidates-list h1 {
+    margin-bottom: 1rem;
+}
+
+.section-candidates-list h1::after {
+    content: '';
+    display: block;
+    width: 65px;
+    height: 5px;
+    background-color: var(--primary-color);
+}
+
+.num-candidates-vancancy {  
+    color: var(--primary-color);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.num-candidates-vancancy .num-candidates {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
