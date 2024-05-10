@@ -19,21 +19,29 @@
     color: var(--tertiary-color);
 }
 
-.info-box .company-img {
-    width: 80px;
-    height: 80px;
-}
-
-.company-name {
-    font-size: 1.3rem;
+.infos .company-name {
+    font-size: 1.5rem;
     font-weight: 600;
     color: var(--tertiary-color);
 }
 
-.company-location {
+.infos ul {
     display: flex;
     align-items: center;
+    gap: 10px;
+    color: var(--tertiary-color);
     font-size: 0.9rem;
+}
+
+.infos ul li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.infos ul li img {
+    width: 20px;
+    height: 20px;
 }
 
 .btn-editar {
@@ -51,24 +59,104 @@
 }
 
 .section-vagas h1 {
-    font-size: 1.5rem;
-    font-weight: 600;
     margin-bottom: 1rem;
 }
 
 .section-vagas h1::after {
     content: '';
     display: block;
-    width: 60px;
-    border-bottom: 5px solid var(--primary-color);
-    margin-top: 0.5rem;
+    width: 65px;
+    height: 5px;
+    background-color: var(--primary-color);
 }
 
-.section-vagas h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
+.num-vancancy {
+    color: var(--primary-color);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.num-vancancy .num-vagas {
+    background-color: var(--primary-color);
+    color: var(--background-color);
     border-radius: 50%;
-    background-color: #00a760;
-    width: 39px;
-    height: 39px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-vagas .card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-vagas .infos .vancancy-name {
+    font-size: 1rem;
+    color: var(--secondary-color);
+}
+
+.section-vagas .infos .name-company {
+    font-size: 1rem;
+    color: var(--secondary-color);
+}
+
+.section-vagas .infos ul {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+}
+
+.section-vagas .infos ul li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.section-vagas .infos ul li img {
+    width: 20px;
+    height: 20px;
+}
+
+.section-vagas .card-1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 50px;
+}
+
+.section-vagas .card-2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 50px;
+}
+
+.section-vagas .card-3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 50px;
+}
+
+.section-vagas .box-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.section-vagas .btn-editar {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-left: 20px;
 }
