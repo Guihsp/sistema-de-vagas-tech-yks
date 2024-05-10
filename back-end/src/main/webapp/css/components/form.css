@@ -1,0 +1,25 @@
+form {
+    width: 70%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--quaternary-color);
+}
+
+form input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 2px solid var(--quaternary-color);
+}
+
+form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 2px solid var(--quaternary-color);
+    resize: none;
+}
