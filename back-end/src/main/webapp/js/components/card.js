@@ -7,10 +7,16 @@ const jobVacancies = [
     },
     {
         title: "DESENVOLVEDOR(A) FULL-STACK - PLENO",
-        company: "TechMnds Solutions",
+        company: "TechMnds",
         location: "São Paulo",
         salary: "Até R$7.000"
     },
+    {
+        title: "DESENVOLVEDOR(A) BACK-END - JUNIOR",
+        company: "ByteBuilders",
+        location: "São Paulo",
+        salary: "Até R$4.000"
+    }, 
     {
         title: "DESENVOLVEDOR(A) BACK-END - JUNIOR",
         company: "ByteBuilders",
@@ -23,57 +29,33 @@ function createJobCards() {
     const vagasContent = document.querySelector('.vagas-content');
 
     jobVacancies.forEach(job => {
-        const card = document.createElement('div');
-        card.classList.add('card');
+        const card = `
+            <div class="card">
+                <a href="#">
+                    <img src="./assets/logo-empresa.svg" alt="" class="logo-empresa">
+                </a>
+                <div class="vaga-infos">
+                    <a href="#">${job.title}</a>
 
-        const logoLink = document.createElement('a');
-        logoLink.href = '#';
+                    <div class="row">
+                        <img src="./assets/location.svg" alt="">
+                        <p>${job.location}</p>
 
-        const logoImage = document.createElement('img');
-        logoImage.src = "./assets/logo-empresa.svg";
-        logoImage.alt = "";
-        logoImage.classList.add('logo-empresa');
+                        <img src="./assets/cash.svg" alt="">
+                        <p>${job.salary}</p>
 
-        logoLink.appendChild(logoImage);
+                        <img src="./assets/briefcase.svg" alt="">
+                        <p>${job.company}</p>
 
-        const jobLink = document.createElement('a');
-        jobLink.href = '#';
-        jobLink.textContent = job.title;
+                    </div>
+                </div>
+            </div>
+        `;
 
-        const vagaInfos = document.createElement('div');
-        vagaInfos.classList.add('vaga-infos');
-
-        const companyRow = createRowElement("./assets/briefcase.svg", job.company);
-        const locationRow = createRowElement("./assets/Location.svg", job.location);
-        const salaryRow = createRowElement("./assets/cash.svg", job.salary);
-
-        vagaInfos.appendChild(companyRow);
-        vagaInfos.appendChild(locationRow);
-        vagaInfos.appendChild(salaryRow);
-
-        card.appendChild(logoLink);
-        card.appendChild(jobLink);
-        card.appendChild(vagaInfos);
-
-        vagasContent.appendChild(card);
+        vagasContent.insertAdjacentHTML('beforeend', card);
     });
 }
 
-function createRowElement(iconSrc, text) {
-    const row = document.createElement('div');
-    row.classList.add('row');
 
-    const icon = document.createElement('img');
-    icon.src = iconSrc;
-    icon.alt = "";
-
-    const textElement = document.createElement('p');
-    textElement.textContent = text;
-
-    row.appendChild(icon);
-    row.appendChild(textElement);
-
-    return row;
-}
 
 createJobCards();

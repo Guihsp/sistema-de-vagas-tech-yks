@@ -1,0 +1,21 @@
+@import './global.css';
+
+.banner {
+    background: url('../assets/banner.png') fixed center/cover;
+    height: 50vh;
+}
+
+.banner-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.vagas-content {
+    padding: 5rem 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
