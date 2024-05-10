@@ -6,35 +6,38 @@ public class VacancyModel {
     private int id;
     private String title;
     private String description;
-    private String requirements;
+    private String requeriments;
     private String salary;
     private String benefits;
     private String responsibilities;
     private ArrayList<UserModel> candidates;
+    private int companyId;
 
     public VacancyModel() {
     }
 
-    public VacancyModel(int id, String title, String description, String requirements, String salary, String benefits, String responsibilities) {
+    public VacancyModel(int id, String title, String description, String requeriments, String salary, String benefits, String responsibilities, int companyId) {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.requirements = requirements;
+        this.requeriments = requeriments;
         this.salary = salary;
         this.benefits = benefits;
         this.responsibilities = responsibilities;
         this.candidates = new ArrayList<UserModel>();
+        this.companyId = companyId;
     }
 
-    public VacancyModel(int id, String title, String description, String requirements, String salary, String benefits, String responsibilities, ArrayList<UserModel> candidates) {
+    public VacancyModel(int id, String title, String description, String requeriments, String salary, String benefits, String responsibilities, ArrayList<UserModel> candidates, int companyId) {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.requirements = requirements;
+        this.requeriments = requeriments;
         this.salary = salary;
         this.benefits = benefits;
         this.responsibilities = responsibilities;
         this.candidates = candidates;
+        this.companyId = companyId;
     }
 
     public ArrayList<UserModel> getCandidates() {
@@ -65,8 +68,8 @@ public class VacancyModel {
         return this.salary;
     }
 
-    public String getRequirements() {
-        return this.requirements;
+    public String getRequeriments() {
+        return this.requeriments;
     }
 
     public String getDescription() {
@@ -81,6 +84,10 @@ public class VacancyModel {
         return this.id;
     }
 
+    public int getCompanyId() {
+        return this.companyId;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -93,8 +100,8 @@ public class VacancyModel {
         this.description = description;
     }
 
-    public void setRequirements(String requirements) {
-        this.requirements = requirements;
+    public void setRequeriments(String requeriments) {
+        this.requeriments = requeriments;
     }
 
     public void setSalary(String salary) {
@@ -107,5 +114,9 @@ public class VacancyModel {
 
     public void setResponsibilities(String responsibilities) {
         this.responsibilities = responsibilities;
+    }
+
+    public void setCompanyId(int companyId) {
+        this.companyId = companyId;
     }
 }
