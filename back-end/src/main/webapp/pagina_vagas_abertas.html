@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/pagina_de_vagas.css">
     <link rel="stylesheet" href="css/components/footer.css">
     <link rel="stylesheet" href="css/components/headerLogin.css">
+    <link rel="stylesheet" href="css/components/cardVagas.css">
     <title>Página de vagas abertas</title>
 </head>
 
@@ -16,27 +17,7 @@
         <header> </header>
 
         <section class="section-empresa">
-            <div class="container">
-                <div class="info-box">
-                    <img src="assets/logo-empresa.svg" alt="Imagem de Perfil da Empresa">
-
-                    <div class="infos">
-                        <p class="company-name">Canes</p>
-
-                        <ul>
-                            <li>
-                                <img src="assets/Location.svg" alt="Localização">
-                                <span class="location-company">São Paulo - SP</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="box-btn">
-                    <a href="#" class="btn-editar">Editar Perfil</a>
-                </div>
-
-            </div>
+            <div id="infoCompany"></div>
         </section>
 
         <section class="section-vagas">
@@ -48,115 +29,7 @@
                     <span class="num-vagas">4</span>
                 </div>
 
-                <div class="card">
-                    <img src="./assets/logo-empresa.svg" alt="Logo da empresa">
-
-                    <div class="infos">
-                        <p class="vancancy-name">DESENVOLVEDOR(A) BACK-END - SENIOR</p>
-
-                        <ul>
-                            <li>
-                                <img src="./assets/briefcase.svg" alt="Pasta">
-                                <span class=".name-company">Canes</span>
-                            </li>
-
-                            <li>
-                                <img src="./assets/Location.svg" alt="Localização">
-                                <span class="location-vancancy">São Paulo - SP</span>
-                            </li>
-
-                            <li>
-                                <img src="./assets/cash.svg" alt="Dinheiro">
-                                <span class="salary-vancancy">Até R$15.000</span>
-                            </li>
-                        </ul>
-
-                    </div>
-
-                </div>
-
-                <div class="card-1">
-                    <img src="./assets/logo-empresa.svg" alt="Logo da empresa">
-
-                    <div class="infos">
-                        <p class="vancancy-name">DESENVOLVEDOR(A) BACK-END - SENIOR</p>
-
-                        <ul>
-                            <li>
-                                <img src="./assets/briefcase.svg" alt="Pasta">
-                                <span class=".name-company">Canes</span>
-                            </li>
-
-                            <li>
-                                <img src="./assets/Location.svg" alt="Localização">
-                                <span class="location-vancancy">São Paulo - SP</span>
-                            </li>
-
-                            <li>
-                                <img src="./assets/cash.svg" alt="Dinheiro">
-                                <span class="salary-vancancy">Até R$15.000</span>
-                            </li>
-                        </ul>
-
-                    </div>
-
-                </div>
-
-
-                <div class="card-2">
-                    <img src="./assets/logo-empresa.svg" alt="Logo da empresa">
-
-                    <div class="infos">
-                        <p class="vancancy-name">DESENVOLVEDOR(A) BACK-END - SENIOR</p>
-
-                        <ul>
-                            <li>
-                                <img src="./assets/briefcase.svg" alt="Pasta">
-                                <span class=".name-company">Canes</span>
-                            </li>
-
-                            <li>
-                                <img src="./assets/Location.svg" alt="Localização">
-                                <span class="location-vancancy">São Paulo - SP</span>
-                            </li>
-
-                            <li>
-                                <img src="./assets/cash.svg" alt="Dinheiro">
-                                <span class="salary-vancancy">Até R$15.000</span>
-                            </li>
-                        </ul>
-
-                    </div>
-
-                </div>
-
-
-                <div class="card-3">
-                    <img src="./assets/logo-empresa.svg" alt="Logo da empresa">
-
-                    <div class="infos">
-                        <p class="vancancy-name">DESENVOLVEDOR(A) BACK-END - SENIOR</p>
-
-                        <ul>
-                            <li>
-                                <img src="./assets/briefcase.svg" alt="Pasta">
-                                <span class=".name-company">Canes</span>
-                            </li>
-
-                            <li>
-                                <img src="./assets/Location.svg" alt="Localização">
-                                <span class="location-vancancy">São Paulo - SP</span>
-                            </li>
-
-                            <li>
-                                <img src="./assets/cash.svg" alt="Dinheiro">
-                                <span class="salary-vancancy">Até R$15.000</span>
-                            </li>
-                        </ul>
-
-                    </div>
-
-                </div>
+                <div class="vagas-content"></div>
 
                 <div class="box-btn">
                     <a href="#" class="btn-editar">Criar vaga</a>
@@ -169,6 +42,8 @@
 
         <script src="js/components/footer.js"></script>
         <script src="js/components/headerCompany.js"></script>
+        <script src="js/components/cardVagas.js"></script>
+        <script src="js/components/editInfoCompany.js"></script>
     </body>
 
 </html>

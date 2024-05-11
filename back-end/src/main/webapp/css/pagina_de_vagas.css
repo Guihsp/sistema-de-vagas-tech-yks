@@ -90,62 +90,6 @@
     align-items: center;
 }
 
-.section-vagas .card {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.section-vagas .infos .vancancy-name {
-    font-size: 1rem;
-    color: var(--secondary-color);
-}
-
-.section-vagas .infos .name-company {
-    font-size: 1rem;
-    color: var(--secondary-color);
-}
-
-.section-vagas .infos ul {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--secondary-color);
-    font-size: 0.9rem;
-}
-
-.section-vagas .infos ul li {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.section-vagas .infos ul li img {
-    width: 20px;
-    height: 20px;
-}
-
-.section-vagas .card-1 {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 50px;
-}
-
-.section-vagas .card-2 {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 50px;
-}
-
-.section-vagas .card-3 {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 50px;
-}
-
 .section-vagas .box-btn {
     display: flex;
     justify-content: center;
