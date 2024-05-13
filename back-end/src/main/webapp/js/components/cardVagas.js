@@ -1,30 +1,3 @@
-const jobVacancies = [
-    {
-        title: "DESENVOLVEDOR(A) BACK-END - SENIOR",
-        company: "Canes",
-        location: "São Paulo - SP",
-        salary: "Até R$15.000"
-    },
-    {
-        title: "DESENVOLVEDOR(A) FRONT-END - PLENO",
-        company: "Canes",
-        location: "São Paulo - SP",
-        salary: "Até R$7.000"
-    },
-    {
-        title: "DESENVOLVEDOR(A) FULL-STACK - SENIOR",
-        company: "Canes",
-        location: "São Paulo - SP",
-        salary: "Até R$20.000"
-    },
-    {
-        title: "DESENVOLVEDOR(A) MOBILE",
-        company: "Canes",
-        location: "São Paulo - SP",
-        salary: "Até R$6.500"
-    }
-];
-
 function createJobCards(vacancies) {
     const vagasContent = document.querySelector('.vagas-content');
 
