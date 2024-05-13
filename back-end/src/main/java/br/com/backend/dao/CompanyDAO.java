@@ -71,8 +71,9 @@ public class CompanyDAO {
                     String name = rs.getString("name");
                     String description = rs.getString("description");
                     String information = rs.getString("information");
+                    String location = rs.getString("location");
 
-                    company = new CompanyModel(id, name, email, password, description, information);
+                    company = new CompanyModel(id, name, email, password, description, information, location);
                 }
             }
         } catch (SQLException e) {
@@ -97,8 +98,9 @@ public class CompanyDAO {
                     String password = rs.getString("password");
                     String description = rs.getString("description");
                     String information = rs.getString("information");
+                    String location = rs.getString("location");
 
-                    company = new CompanyModel(id, name, email, password, description, information);
+                    company = new CompanyModel(id, name, email, password, description, information, location);
                 }
             }
         } catch (SQLException e) {

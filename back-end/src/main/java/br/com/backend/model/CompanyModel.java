@@ -9,6 +9,7 @@ public class CompanyModel {
     private String password;
     private String description;
     private String information;
+    private String location;
     private ArrayList<VacancyModel> vacancies;
 
     public CompanyModel(String email, String password) {
@@ -16,23 +17,27 @@ public class CompanyModel {
         this.password = password;
     }
 
-    public CompanyModel(int id, String name, String email, String password, String description, String information) {
+    public CompanyModel(int id, String name, String email, String password, String description, String information,
+            String location) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
         this.description = description;
         this.information = information;
+        this.location = location;
         this.vacancies = new ArrayList<VacancyModel>();
     }
 
-    public CompanyModel(int id, String name, String email, String password, String description, String information, ArrayList<VacancyModel> vacancies) {
+    public CompanyModel(int id, String name, String email, String password, String description, String information,
+            String location, ArrayList<VacancyModel> vacancies) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
         this.description = description;
         this.information = information;
+        this.location = location;
         this.vacancies = vacancies;
     }
 
@@ -96,5 +101,13 @@ public class CompanyModel {
         this.email = email;
     }
 
+    public String getLocation() {
+
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
 
 }

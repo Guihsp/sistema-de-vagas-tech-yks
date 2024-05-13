@@ -12,6 +12,11 @@ public class VacancyModel {
     private String responsibilities;
     private ArrayList<UserModel> candidates;
     private int companyId;
+    private String companyName;
+    private String companyEmail;
+    private String companyDescription;
+    private String companyInformation;
+    private String companyLocation;
 
     public VacancyModel() {
     }
@@ -86,6 +91,46 @@ public class VacancyModel {
 
     public int getCompanyId() {
         return this.companyId;
+    }
+
+    public String getCompanyName() {
+        return this.companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public String getCompanyEmail() {
+        return this.companyEmail;
+    }
+
+    public void setCompanyEmail(String companyEmail) {
+        this.companyEmail = companyEmail;
+    }
+
+    public String getCompanyDescription() {
+        return this.companyDescription;
+    }
+
+    public void setCompanyDescription(String companyDescription) {
+        this.companyDescription = companyDescription;
+    }
+
+    public String getCompanyInformation() {
+        return this.companyInformation;
+    }
+
+    public void setCompanyInformation(String companyInformation) {
+        this.companyInformation = companyInformation;
+    }
+
+    public String getCompanyLocation() {
+        return this.companyLocation;
+    }
+
+    public void setCompanyLocation(String companyLocation) {
+        this.companyLocation = companyLocation;
     }
 
     public void setId(int id) {
