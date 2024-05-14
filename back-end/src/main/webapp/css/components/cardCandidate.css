@@ -4,6 +4,9 @@
     display: flex;
     align-items: center;
     gap: .5rem;
-    padding: .5rem 3.25rem;
+    padding: .5rem 30px;
     width: 70%;
+}
+.candidate img{
+    padding:  0 0px 0 30px;
 }

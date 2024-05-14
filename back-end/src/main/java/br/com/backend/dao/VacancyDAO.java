@@ -160,7 +160,13 @@ public class VacancyDAO {
     public ArrayList<VacancyModel> getVacanciesByCompanyId(int companyId) {
         ArrayList<VacancyModel> vacancies = new ArrayList<VacancyModel>();
         VacancyDAO vacancyDAO = new VacancyDAO(url, userBd, password);
-        String postgresql = "SELECT * FROM \"vacancy\" WHERE \"company_id\" = ?";
+        String postgresql = "SELECT v.*, c.\"name\" as company_name, c.email as company_email, c.description as company_description, "
+                +
+                "c.information as company_information, c.location as company_location " +
+                "FROM \"vacancy\" v " +
+                "JOIN \"company\" c ON v.company_id = c.id " +
+                "WHERE v.company_id = ? " + // Adicionando a cláusula WHERE
+                "ORDER BY v.\"id\" DESC";
         try (PreparedStatement ps = vacancyDAO.connection.prepareStatement(postgresql)) {
             ps.setInt(1, companyId);
             ResultSet rs = ps.executeQuery();
@@ -172,6 +178,11 @@ public class VacancyDAO {
                 vacancy.setSalary(rs.getString("salary"));
                 vacancy.setRequeriments(rs.getString("requeriments"));
                 vacancy.setCompanyId(rs.getInt("company_id"));
+                vacancy.setCompanyName(rs.getString("company_name"));
+                vacancy.setCompanyEmail(rs.getString("company_email"));
+                vacancy.setCompanyDescription(rs.getString("company_description"));
+                vacancy.setCompanyInformation(rs.getString("company_information"));
+                vacancy.setLocation(rs.getString("location"));
                 vacancies.add(vacancy);
             }
         } catch (SQLException e) {

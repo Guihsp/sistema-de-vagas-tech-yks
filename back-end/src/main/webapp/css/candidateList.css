@@ -12,11 +12,12 @@
     padding: 1.5rem 0;
 }
 
-.section-info-vancancy .container {
+.section-info-vancancy .navBar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 80%;
+    padding-left: 12%;
 }
 
 .info-box {
@@ -59,7 +60,11 @@
 }
 
 .section-candidates-list {
-    padding: 2rem 0;
+    padding: 2rem 12%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
     min-height: 80vh;
 }
 

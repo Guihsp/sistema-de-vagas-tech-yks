@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.backend.model.UserModel;
 
@@ -30,7 +32,7 @@ public class UserDAO {
     public UserModel createUser(UserModel user) {
         UserDAO userDAO = new UserDAO(url, userBd, password);
         String postgresql = "INSERT INTO \"user\" (\"name\", \"email\", \"password\") VALUES (?, ?, ?)";
-        try  (PreparedStatement ps = userDAO.connection.prepareStatement(postgresql, Statement.RETURN_GENERATED_KEYS)) {
+        try (PreparedStatement ps = userDAO.connection.prepareStatement(postgresql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, user.getName());
             ps.setString(2, user.getEmail());
             ps.setString(3, user.getPassword());
@@ -59,7 +61,7 @@ public class UserDAO {
         UserDAO userDAO = new UserDAO(url, userBd, password);
         UserModel user = new UserModel();
         String postgresql = "SELECT * FROM \"user\" WHERE email = ?";
-        try  (PreparedStatement ps = userDAO.connection.prepareStatement(postgresql, Statement.RETURN_GENERATED_KEYS)) {
+        try (PreparedStatement ps = userDAO.connection.prepareStatement(postgresql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, email);
             ResultSet rs = ps.executeQuery();
 
@@ -79,7 +81,7 @@ public class UserDAO {
         UserDAO userDAO = new UserDAO(url, userBd, password);
         UserModel user = new UserModel();
         String postgresql = "SELECT * FROM \"user\" WHERE id = ?";
-        try  (PreparedStatement ps = userDAO.connection.prepareStatement(postgresql, Statement.RETURN_GENERATED_KEYS)) {
+        try (PreparedStatement ps = userDAO.connection.prepareStatement(postgresql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
 
@@ -93,5 +95,31 @@ public class UserDAO {
             e.printStackTrace();
         }
         return user;
+    }
+
+    public List<UserModel> getUsersByVacancy(int vacancyId) {
+        List<UserModel> users = new ArrayList<>();
+        String query = "SELECT u.id, u.name, u.email, u.information " +
+                "FROM \"user\" u " +
+                "JOIN \"candidates\" c ON u.id = c.user_id " +
+                "WHERE c.vacancy_id = ?";
+
+        try (Connection connection = DriverManager.getConnection(url, userBd, password);
+                PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setInt(1, vacancyId);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                UserModel user = new UserModel();
+                user.setId(rs.getInt("id"));
+                user.setName(rs.getString("name"));
+                user.setEmail(rs.getString("email"));
+                user.setInformation(rs.getString("information"));
+                users.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return users;
     }
 }
