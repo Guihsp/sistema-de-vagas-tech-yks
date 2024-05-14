@@ -1,34 +1,7 @@
-const jobVacancies = [
-    {
-        title: "DESENVOLVEDOR(A) FRONT-END - PLENO",
-        company: "Canes",
-        location: "São Paulo",
-        salary: "Até R$7.000"
-    },
-    {
-        title: "DESENVOLVEDOR(A) FULL-STACK - PLENO",
-        company: "TechMnds",
-        location: "São Paulo",
-        salary: "Até R$7.000"
-    },
-    {
-        title: "DESENVOLVEDOR(A) BACK-END - JUNIOR",
-        company: "ByteBuilders",
-        location: "São Paulo",
-        salary: "Até R$4.000"
-    }, 
-    {
-        title: "DESENVOLVEDOR(A) BACK-END - JUNIOR",
-        company: "ByteBuilders",
-        location: "São Paulo",
-        salary: "Até R$4.000"
-    }
-];
-
-function createJobCards() {
+function createJobCards(vacancies) {
     const vagasContent = document.querySelector('.vagas-content');
 
-    jobVacancies.forEach(job => {
+    vacancies.forEach(job => {
         const card = `
             <div class="card">
                 <a href="#">
@@ -39,13 +12,13 @@ function createJobCards() {
 
                     <div class="row">
                         <img src="./assets/location.svg" alt="">
-                        <p>${job.location}</p>
+                        <p>${job.companyLocation}</p>
 
                         <img src="./assets/cash.svg" alt="">
                         <p>${job.salary}</p>
 
                         <img src="./assets/briefcase.svg" alt="">
-                        <p>${job.company}</p>
+                        <p>${job.companyName}</p>
 
                     </div>
                 </div>
@@ -56,6 +29,46 @@ function createJobCards() {
     });
 }
 
+const getCurrentPage = () => {
+    const currentPage = window.location.pathname;
+    console.log("Current page:", currentPage);
+    return currentPage;
+};
 
+const vacancysIndexPage = async () => {
+    return new Promise(async (resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        let url;
 
-createJobCards();
+        if (getCurrentPage() === "/back-end/src/main/webapp/index.html") {
+            url = `http://localhost:8080/api/find3LastVacancy`;
+        } else if (getCurrentPage() === "/back-end/src/main/webapp/vacanciesPage.html") {
+            url = `http://localhost:8080/api/findAllVacancies`;
+        } else {
+            reject("Página não reconhecida.");
+            return;
+        }
+
+        xhr.open("GET", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                const vacancies = JSON.parse(xhr.responseText);
+                createJobCards(vacancies);
+                return resolve(vacancies);
+            } else {
+                console.error("Erro ao buscar vagas:", xhr.responseText);
+                reject(xhr.responseText);
+            }
+        };
+
+        xhr.onerror = function () {
+            reject("Erro de rede ao buscar vagas.");
+        };
+
+        await xhr.send();
+    });
+};
+
+vacancysIndexPage();

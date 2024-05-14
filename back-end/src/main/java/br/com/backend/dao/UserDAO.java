@@ -75,4 +75,23 @@ public class UserDAO {
         return user;
     }
 
+    public UserModel getUserById(int id) {
+        UserDAO userDAO = new UserDAO(url, userBd, password);
+        UserModel user = new UserModel();
+        String postgresql = "SELECT * FROM \"user\" WHERE id = ?";
+        try  (PreparedStatement ps = userDAO.connection.prepareStatement(postgresql, Statement.RETURN_GENERATED_KEYS)) {
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            rs.next();
+            user.setId(rs.getInt("id"));
+            user.setName(rs.getString("name"));
+            user.setEmail(rs.getString("email"));
+            user.setInformation(rs.getString("information"));
+            user.setPhoneNumber(rs.getString("phoneNumber"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
 }
