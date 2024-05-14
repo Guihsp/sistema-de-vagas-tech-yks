@@ -128,4 +128,41 @@ public class VacancyDAO {
         }
         return vacancies;
     }
+
+    public void applyVacancy(int userId, int vacancyId) {
+        VacancyDAO vacancyDAO = new VacancyDAO(url, userBd, password);
+        String postgresql = "INSERT INTO \"candidates\" (\"user_id\", \"vacancy_id\") VALUES (?, ?)";
+        try (PreparedStatement ps = vacancyDAO.connection.prepareStatement(postgresql)) {
+            ps.setInt(1, userId);
+            ps.setInt(2, vacancyId);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+ public VacancyModel getVacancyById(int id) {
+        VacancyModel vacancy = new VacancyModel();
+        VacancyDAO vacancyDAO = new VacancyDAO(url, userBd, password);
+        String postgresql = "SELECT * FROM \"vacancy\" WHERE \"id\" = ?";
+        try (PreparedStatement ps = vacancyDAO.connection.prepareStatement(postgresql)) {
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                vacancy.setId(rs.getInt("id"));
+                vacancy.setTitle(rs.getString("title"));
+                vacancy.setDescription(rs.getString("description"));
+                vacancy.setSalary(rs.getString("salary"));
+                vacancy.setBenefits(rs.getString("benefits"));
+                vacancy.setRequeriments(rs.getString("requeriments"));
+                vacancy.setResponsibilities(rs.getString("responsabilities"));
+                vacancy.setCompanyId(rs.getInt("company_id"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return vacancy;
+    }
 }
