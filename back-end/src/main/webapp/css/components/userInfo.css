@@ -1,0 +1,42 @@
+.section-user-infos {
+    background-color: var(--quaternary-color);
+    padding: 1.5rem 0;
+}
+
+.section-user-infos .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-user-infos .container .user-infos {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.section-user-infos .container .user-infos .user-img img {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+}
+
+.section-user-infos .container .user-infos .user-data p {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--tertiary-color);
+}
+
+.section-user-infos .container .user-infos .user-data span {
+    font-weight: 300;
+    color: var(--tertiary-color);   
+}
+
+.section-user-infos .container .box-btn .btn {
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-left: 15px;
+}

@@ -1,0 +1,24 @@
+@import 'global.css';
+
+.section-candidate-description {
+    padding: 2rem 0;
+    flex: 1 0 auto;
+}
+
+.section-candidate-description .container .candidate-description-contact {
+    width: 70%;
+}
+
+.section-candidate-description .container .candidate-description-contact h1::after,
+.section-candidate-description .container .candidate-description-contact h2::after {
+    content: '';
+    display: block;
+    width: 3.5rem;
+    height: 5px;
+    background-color: var(--primary-color);
+}
+
+.section-candidate-description .container .candidate-description-contact #description,
+.section-candidate-description .container .candidate-description-contact .contact {
+    margin: 1rem 0;
+}
