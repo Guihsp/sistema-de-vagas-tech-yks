@@ -30,16 +30,15 @@ public class VacancyDAO {
 
     public VacancyModel createVacancy(VacancyModel vacancy) {
         VacancyDAO vacancyDAO = new VacancyDAO(url, userBd, password);
-        String postgresql = "INSERT INTO \"vacancy\" (\"title\", \"description\", \"salary\", \"benefits\", \"requeriments\", \"responsabilities\", \"company_id\") VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String postgresql = "INSERT INTO \"vacancy\" (\"title\", \"description\", \"salary\", \"requeriments\", \"location\", \"company_id\") VALUES (?, ?, ?, ?, ?, ?)";
         try (PreparedStatement ps = vacancyDAO.connection.prepareStatement(postgresql,
                 Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, vacancy.getTitle());
             ps.setString(2, vacancy.getDescription());
             ps.setString(3, vacancy.getSalary());
-            ps.setString(4, vacancy.getBenefits());
-            ps.setString(5, vacancy.getRequeriments());
-            ps.setString(6, vacancy.getResponsibilities());
-            ps.setInt(7, vacancy.getCompanyId());
+            ps.setString(4, vacancy.getRequeriments());
+            ps.setString(5, vacancy.getLocation());
+            ps.setInt(6, vacancy.getCompanyId());
 
             int affectedRows = ps.executeUpdate();
 
@@ -78,15 +77,13 @@ public class VacancyDAO {
                 vacancy.setTitle(rs.getString("title"));
                 vacancy.setDescription(rs.getString("description"));
                 vacancy.setSalary(rs.getString("salary"));
-                vacancy.setBenefits(rs.getString("benefits"));
                 vacancy.setRequeriments(rs.getString("requeriments"));
-                vacancy.setResponsibilities(rs.getString("responsabilities"));
                 vacancy.setCompanyId(rs.getInt("company_id"));
                 vacancy.setCompanyName(rs.getString("company_name"));
                 vacancy.setCompanyEmail(rs.getString("company_email"));
                 vacancy.setCompanyDescription(rs.getString("company_description"));
                 vacancy.setCompanyInformation(rs.getString("company_information"));
-                vacancy.setCompanyLocation(rs.getString("company_location"));
+                vacancy.setLocation(rs.getString("location"));
                 vacancies.add(vacancy);
             }
         } catch (SQLException e) {
@@ -112,15 +109,13 @@ public class VacancyDAO {
                 vacancy.setTitle(rs.getString("title"));
                 vacancy.setDescription(rs.getString("description"));
                 vacancy.setSalary(rs.getString("salary"));
-                vacancy.setBenefits(rs.getString("benefits"));
                 vacancy.setRequeriments(rs.getString("requeriments"));
-                vacancy.setResponsibilities(rs.getString("responsabilities"));
                 vacancy.setCompanyId(rs.getInt("company_id"));
                 vacancy.setCompanyName(rs.getString("company_name"));
                 vacancy.setCompanyEmail(rs.getString("company_email"));
                 vacancy.setCompanyDescription(rs.getString("company_description"));
                 vacancy.setCompanyInformation(rs.getString("company_information"));
-                vacancy.setCompanyLocation(rs.getString("company_location"));
+                vacancy.setLocation(rs.getString("location"));
                 vacancies.add(vacancy);
             }
         } catch (SQLException e) {
@@ -141,9 +136,7 @@ public class VacancyDAO {
         }
     }
 
-
-
- public VacancyModel getVacancyById(int id) {
+    public VacancyModel getVacancyById(int id) {
         VacancyModel vacancy = new VacancyModel();
         VacancyDAO vacancyDAO = new VacancyDAO(url, userBd, password);
         String postgresql = "SELECT * FROM \"vacancy\" WHERE \"id\" = ?";
@@ -155,14 +148,35 @@ public class VacancyDAO {
                 vacancy.setTitle(rs.getString("title"));
                 vacancy.setDescription(rs.getString("description"));
                 vacancy.setSalary(rs.getString("salary"));
-                vacancy.setBenefits(rs.getString("benefits"));
                 vacancy.setRequeriments(rs.getString("requeriments"));
-                vacancy.setResponsibilities(rs.getString("responsabilities"));
                 vacancy.setCompanyId(rs.getInt("company_id"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return vacancy;
+    }
+
+    public ArrayList<VacancyModel> getVacanciesByCompanyId(int companyId) {
+        ArrayList<VacancyModel> vacancies = new ArrayList<VacancyModel>();
+        VacancyDAO vacancyDAO = new VacancyDAO(url, userBd, password);
+        String postgresql = "SELECT * FROM \"vacancy\" WHERE \"company_id\" = ?";
+        try (PreparedStatement ps = vacancyDAO.connection.prepareStatement(postgresql)) {
+            ps.setInt(1, companyId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                VacancyModel vacancy = new VacancyModel();
+                vacancy.setId(rs.getInt("id"));
+                vacancy.setTitle(rs.getString("title"));
+                vacancy.setDescription(rs.getString("description"));
+                vacancy.setSalary(rs.getString("salary"));
+                vacancy.setRequeriments(rs.getString("requeriments"));
+                vacancy.setCompanyId(rs.getInt("company_id"));
+                vacancies.add(vacancy);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return vacancies;
     }
 }

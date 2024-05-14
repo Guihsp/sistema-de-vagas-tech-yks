@@ -9,7 +9,6 @@ import java.sql.Statement;
 
 import br.com.backend.model.CompanyModel;
 
-
 public class CompanyDAO {
     private Connection connection;
 
@@ -31,7 +30,8 @@ public class CompanyDAO {
     public CompanyModel createCompany(CompanyModel company) {
         CompanyDAO companyDAO = new CompanyDAO(url, userBd, password);
         String postgresql = "INSERT INTO \"company\" (\"name\", \"email\", \"password\") VALUES (?, ?, ?)";
-        try  (PreparedStatement ps = companyDAO.connection.prepareStatement(postgresql, Statement.RETURN_GENERATED_KEYS)) {
+        try (PreparedStatement ps = companyDAO.connection.prepareStatement(postgresql,
+                Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, company.getName());
             ps.setString(2, company.getEmail());
             ps.setString(3, company.getPassword());
@@ -56,14 +56,14 @@ public class CompanyDAO {
         return company;
     }
 
-    public CompanyModel login(String email, String password) {
+    public CompanyModel login(String email, String companyPassword) {
         CompanyModel company = null;
         String query = "SELECT * FROM company WHERE email = ? AND password = ?";
 
         try (Connection connection = DriverManager.getConnection(url, userBd, password);
-             PreparedStatement ps = connection.prepareStatement(query)) {
+                PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setString(1, email);
-            ps.setString(2, password);
+            ps.setString(2, companyPassword);
 
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
@@ -73,7 +73,7 @@ public class CompanyDAO {
                     String information = rs.getString("information");
                     String location = rs.getString("location");
 
-                    company = new CompanyModel(id, name, email, password, description, information, location);
+                    company = new CompanyModel(id, name, email, description, information, location);
                 }
             }
         } catch (SQLException e) {
@@ -88,7 +88,7 @@ public class CompanyDAO {
         String query = "SELECT * FROM company WHERE email = ?";
 
         try (Connection connection = DriverManager.getConnection(url, userBd, password);
-             PreparedStatement ps = connection.prepareStatement(query)) {
+                PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setString(1, email);
 
             try (ResultSet rs = ps.executeQuery()) {
@@ -109,5 +109,4 @@ public class CompanyDAO {
 
         return company;
     }
-
 }

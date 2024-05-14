@@ -41,6 +41,16 @@ public class CompanyModel {
         this.vacancies = vacancies;
     }
 
+    public CompanyModel(int id, String name, String email, String description, String information,
+            String location) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.description = description;
+        this.information = information;
+        this.location = location;
+    }
+
     public ArrayList<VacancyModel> getVacancies() {
         return this.vacancies;
     }

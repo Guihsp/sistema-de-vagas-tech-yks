@@ -1,6 +1,6 @@
-import ('../menu.js');
-
 function createHeader() {
+    const infoCompany = localStorage.getItem("company");
+    const parsedInfoCompany = JSON.parse(infoCompany);
     const header = document.createElement('header');
     header.innerHTML = `
     <div class="container">
@@ -12,7 +12,7 @@ function createHeader() {
                 <li>
                     <a href="#" class="nav-link btn-perfil">
                         <img src="./assets/profile.svg" alt="">
-                        Canes
+                        ${parsedInfoCompany.name}
                     </a>
                 </li>
 
@@ -61,3 +61,14 @@ function createHeader() {
 
 const headerElement = createHeader();
 document.querySelector('header').appendChild(headerElement);
+
+const btnMenu = () => {
+    const btn = document.querySelector('#btn-menu');
+    const menu = document.querySelector('.dropdown');
+
+    btn.addEventListener('click', () => {
+        menu.classList.toggle('active');
+    });
+}
+
+btnMenu();

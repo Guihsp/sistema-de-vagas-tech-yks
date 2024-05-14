@@ -8,39 +8,33 @@ public class VacancyModel {
     private String description;
     private String requeriments;
     private String salary;
-    private String benefits;
-    private String responsibilities;
     private ArrayList<UserModel> candidates;
     private int companyId;
     private String companyName;
     private String companyEmail;
     private String companyDescription;
     private String companyInformation;
-    private String companyLocation;
+    private String location;
 
     public VacancyModel() {
     }
 
-    public VacancyModel(int id, String title, String description, String requeriments, String salary, String benefits, String responsibilities, int companyId) {
+    public VacancyModel(int id, String title, String description, String requeriments, String salary, int companyId) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.requeriments = requeriments;
         this.salary = salary;
-        this.benefits = benefits;
-        this.responsibilities = responsibilities;
         this.candidates = new ArrayList<UserModel>();
         this.companyId = companyId;
     }
 
-    public VacancyModel(int id, String title, String description, String requeriments, String salary, String benefits, String responsibilities, ArrayList<UserModel> candidates, int companyId) {
+    public VacancyModel(int id, String title, String description, String requeriments, String salary, ArrayList<UserModel> candidates, int companyId) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.requeriments = requeriments;
         this.salary = salary;
-        this.benefits = benefits;
-        this.responsibilities = responsibilities;
         this.candidates = candidates;
         this.companyId = companyId;
     }
@@ -59,14 +53,6 @@ public class VacancyModel {
 
     public void removeCandidate(UserModel candidate) {
         this.candidates.remove(candidate);
-    }
-
-    public String getResponsibilities() {
-        return this.responsibilities;
-    }
-
-    public String getBenefits() {
-        return this.benefits;
     }
 
     public String getSalary() {
@@ -125,12 +111,12 @@ public class VacancyModel {
         this.companyInformation = companyInformation;
     }
 
-    public String getCompanyLocation() {
-        return this.companyLocation;
+    public String getLocation() {
+        return this.location;
     }
 
-    public void setCompanyLocation(String companyLocation) {
-        this.companyLocation = companyLocation;
+    public void setLocation(String companyLocation) {
+        this.location = companyLocation;
     }
 
     public void setId(int id) {
@@ -151,14 +137,6 @@ public class VacancyModel {
 
     public void setSalary(String salary) {
         this.salary = salary;
-    }
-
-    public void setBenefits(String benefits) {
-        this.benefits = benefits;
-    }
-
-    public void setResponsibilities(String responsibilities) {
-        this.responsibilities = responsibilities;
     }
 
     public void setCompanyId(int companyId) {

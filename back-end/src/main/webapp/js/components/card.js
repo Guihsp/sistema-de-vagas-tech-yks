@@ -12,7 +12,7 @@ function createJobCards(vacancies) {
 
                     <div class="row">
                         <img src="./assets/location.svg" alt="">
-                        <p>${job.companyLocation}</p>
+                        <p>${job.location}</p>
 
                         <img src="./assets/cash.svg" alt="">
                         <p>${job.salary}</p>
@@ -31,19 +31,21 @@ function createJobCards(vacancies) {
 
 const getCurrentPage = () => {
     const currentPage = window.location.pathname;
-    console.log("Current page:", currentPage);
     return currentPage;
 };
 
 const vacancysIndexPage = async () => {
+    const company = JSON.parse(localStorage.getItem("company"))
     return new Promise(async (resolve, reject) => {
         const xhr = new XMLHttpRequest();
         let url;
 
-        if (getCurrentPage() === "/back-end/src/main/webapp/index.html") {
+        if (getCurrentPage() === "/") {
             url = `http://localhost:8080/api/find3LastVacancy`;
-        } else if (getCurrentPage() === "/back-end/src/main/webapp/vacanciesPage.html") {
+        } else if (getCurrentPage() === "/vacanciesPage.html") {
             url = `http://localhost:8080/api/findAllVacancies`;
+        }else if(getCurrentPage() === "/pagina_vagas_abertas.html"){
+            url = `http://localhost:8080/api/getVacanciesByCompanyId/${company.id}`;
         } else {
             reject("Página não reconhecida.");
             return;

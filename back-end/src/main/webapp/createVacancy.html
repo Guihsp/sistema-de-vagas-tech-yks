@@ -25,8 +25,8 @@
                 <textarea name="description" id="description" cols="30" rows="10"
                     placeholder="Quais as principais atividades e responsabilidade do cargo." required></textarea>
 
-                <label for="requirements">* Requisitos</label>
-                <textarea name="requirements" id="requirements" cols="30" rows="10"
+                <label for="requeriments">* Requisitos</label>
+                <textarea name="requeriments" id="requeriments" cols="30" rows="10"
                     placeholder="O que o candidato precisa ter para concorrer à vaga." required></textarea>
 
                 <label for="location">* Localização</label>
@@ -39,7 +39,7 @@
 
             <p>**Confira as informações antes de criar a vaga**</p>
 
-            <button class="btn-create">Criar Vaga</button>
+            <button class="btn-create" onclick="createVacancy()">Criar Vaga</button>
         </div>
 
 
@@ -49,6 +49,7 @@
 
     <script src="js/components/headerCompany.js"></script>
     <script src="./js/components/footer.js"></script>
+    <script src="./js/integrations/createVacancy.js"></script>
 </body>
 
 </html>

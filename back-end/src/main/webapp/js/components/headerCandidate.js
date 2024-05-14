@@ -1,4 +1,5 @@
 function createHeader() {
+    console.log('ddddddddddddddddddddddddddddddddddddddddddddddddddd');
     const infoUser = localStorage.getItem("user");
     const parsedInfoUser = JSON.parse(infoUser);
     const header = document.createElement('header');
