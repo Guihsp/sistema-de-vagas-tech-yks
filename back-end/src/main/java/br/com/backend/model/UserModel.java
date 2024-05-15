@@ -9,7 +9,18 @@ public class UserModel {
     private String password;
     private String phoneNumber;
     private String information;
+    private String location;
     private ArrayList<VacancyModel> vacancies;
+
+
+    public UserModel(int id, String name, String email, String phoneNumber, String information, String location) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.information = information;
+        this.location = location;
+    }
 
     public UserModel() {
     }
@@ -17,32 +28,38 @@ public class UserModel {
     public UserModel(String joãoSilva, String mail, String s) {
     }
 
-    public UserModel(int id, String name, String email, String password, String phoneNumber, String information) {
+    public UserModel(int id, String name, String email, String password, String phoneNumber, String information,
+            String location) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
         this.phoneNumber = phoneNumber;
         this.information = information;
+        this.location = location;
         this.vacancies = new ArrayList<VacancyModel>();
     }
 
-    public UserModel(int id, String name, String email, String password, String phoneNumber, String information, ArrayList<VacancyModel> vacancies) {
+    public UserModel(int id, String name, String email, String password, String phoneNumber, String information,
+            String location, ArrayList<VacancyModel> vacancies) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
         this.phoneNumber = phoneNumber;
         this.information = information;
+        this.location = location;
         this.vacancies = vacancies;
     }
 
-    public UserModel(String name, String email, String password, String phoneNumber, String information) {
+    public UserModel(String name, String email, String password, String phoneNumber, String information,
+            String location) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.phoneNumber = phoneNumber;
         this.information = information;
+        this.location = location;
     }
 
     public ArrayList<VacancyModel> getVacancies() {
@@ -60,7 +77,6 @@ public class UserModel {
     public void removeVacancy(VacancyModel vacancy) {
         this.vacancies.remove(vacancy);
     }
-
 
     public String getInformation() {
         return this.information;
@@ -94,6 +110,14 @@ public class UserModel {
         this.email = email;
     }
 
+    public String getLocation() {
+        return this.email;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
     public String getPassword() {
         return this.password;
     }
@@ -108,5 +132,5 @@ public class UserModel {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }    
+    }
 }

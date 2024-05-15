@@ -16,6 +16,7 @@ function companyLogin() {
         if (xhr.status === 200) {
             const company = xhr.responseText;
             localStorage.removeItem("company");
+            localStorage.removeItem("user");
             localStorage.setItem("company", company);
             window.location.href = "./pagina_vagas_abertas.html";
         } else {

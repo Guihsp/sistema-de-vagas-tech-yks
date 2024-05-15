@@ -3,12 +3,12 @@ function createJobCards(vacancies) {
 
     vacancies.forEach(job => {
         const card = `
-            <div class="card">
-                <a href="#">
+            <div class="card" onclick="redirectToVacancyPage(${job.id})">
+                <a onclick="redirectToVacancyPage(${job.id})">
                     <img src="./assets/logo-empresa.svg" alt="" class="logo-empresa">
                 </a>
                 <div class="vaga-infos">
-                    <a href="#">${job.title}</a>
+                    <a onclick="redirectToVacancyPage(${job.id})">${job.title}</a>
 
                     <div class="row">
                         <img src="./assets/location.svg" alt="">
@@ -72,5 +72,10 @@ const vacancysIndexPage = async () => {
         await xhr.send();
     });
 };
+
+const redirectToVacancyPage = (vacancyId) => {
+    localStorage.setItem("vacancyId", vacancyId);
+    window.location.href = "vaga_aberta.html";    
+}
 
 vacancysIndexPage();

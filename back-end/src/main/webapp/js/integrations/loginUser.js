@@ -17,6 +17,7 @@ function userLogin() {
         if (xhr.status === 200) {
             const user = xhr.responseText;
             localStorage.removeItem("user");
+            localStorage.removeItem("company");
             localStorage.setItem("user", user);
             window.location.href = "./edcandidato.html";
         } else {

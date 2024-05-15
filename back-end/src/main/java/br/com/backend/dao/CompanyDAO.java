@@ -109,4 +109,22 @@ public class CompanyDAO {
 
         return company;
     }
+
+    public CompanyModel getUserByEmail(String email) {
+        CompanyDAO companyDAO = new CompanyDAO(url, userBd, password);
+        CompanyModel company = new CompanyModel();
+        String postgresql = "SELECT * FROM \"company\" WHERE email = ?";
+        try (PreparedStatement ps = companyDAO.connection.prepareStatement(postgresql, Statement.RETURN_GENERATED_KEYS)) {
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+
+            rs.next();
+            company.setId(rs.getInt("id"));
+            company.setName(rs.getString("name"));
+            company.setEmail(rs.getString("email"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return company;
+    }
 }

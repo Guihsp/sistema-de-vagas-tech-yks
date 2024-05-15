@@ -1,26 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
-    let vagasAbertas = 4; // Valor inicial
 
     function createJobCards(vacancies) {
         const vagasContent = document.querySelector('.vagas-content');
 
-        // Adiciona o contador de vagas abertas
         const numVancancyHTML = `
             <div class="num-vancancy">
                 <p>Número de vagas abertas: </p>
-                <span class="num-vagas">${vagasAbertas}</span>
+                <span class="num-vagas">${vacancies.length}</span>
             </div>
         `;
-        vagasContent.innerHTML = numVancancyHTML; // Garante que o contador esteja no topo
+        vagasContent.innerHTML = numVancancyHTML;
 
         vacancies.forEach(job => {
             const card = `
-                <div class="card">
-                    <a href="#">
+            <div class="card" onclick="redirectToVacancyPage(${job.id})">
+            <a onclick="redirectToVacancyPage(${job.id})">
                         <img src="./assets/logo-empresa.svg" alt="" class="logo-empresa">
                     </a>
                     <div class="vaga-infos">
-                        <a href="#">${job.title}</a>
+                    <a onclick="redirectToVacancyPage(${job.id})">${job.title}</a>
                         <div class="row">
                             <img src="./assets/location.svg" alt="">
                             <p>${job.location}</p>
@@ -36,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
             vagasContent.insertAdjacentHTML('beforeend', card);
         });
 
-        // Atualiza o número de vagas abertas no HTML
         const numVagasElement = document.querySelector('.num-vagas');
         numVagasElement.textContent = vacancies.length;
     }
@@ -71,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             xhr.onload = function () {
                 if (xhr.status === 200) {
                     const vacancies = JSON.parse(xhr.responseText);
-                    vagasAbertas = vacancies.length; // Atualiza o número de vagas abertas
+                    vagasAbertas = vacancies.length;
                     createJobCards(vacancies);
                     resolve(vacancies);
                 } else {

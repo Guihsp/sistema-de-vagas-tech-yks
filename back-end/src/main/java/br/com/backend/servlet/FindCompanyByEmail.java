@@ -7,15 +7,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import br.com.backend.dao.UserDAO;
-import br.com.backend.model.UserModel;
 
-@WebServlet("/api/findUserByEmail/*")
-public class FindUserByEmail extends HttpServlet {
-    private UserDAO userDAO;
+import br.com.backend.dao.CompanyDAO;
+import br.com.backend.model.CompanyModel;
 
-    public FindUserByEmail() {
-        this.userDAO = new UserDAO();
+@WebServlet("/api/findCompanyByEmail/*")
+public class FindCompanyByEmail extends HttpServlet {
+    private CompanyDAO companyDAO;
+
+    public FindCompanyByEmail() {
+        this.companyDAO = new CompanyDAO();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -31,8 +32,8 @@ public class FindUserByEmail extends HttpServlet {
             String[] pathParts = request.getPathInfo().split("/");
             if (pathParts.length > 1) {
                 String email = pathParts[1];
-                UserModel user = userDAO.getUserByEmail(email);
-                String jsonResponse = gson.toJson(user);
+                CompanyModel company = companyDAO.getCompanyByEmail(email);
+                String jsonResponse = gson.toJson(company);
                 out.println(jsonResponse);
             } else {
                 response.setStatus(HttpServletResponse.SC_BAD_REQUEST);

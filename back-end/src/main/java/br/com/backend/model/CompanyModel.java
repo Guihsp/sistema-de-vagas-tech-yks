@@ -17,6 +17,9 @@ public class CompanyModel {
         this.password = password;
     }
 
+    public CompanyModel() {
+    }
+
     public CompanyModel(int id, String name, String email, String password, String description, String information,
             String location) {
         this.id = id;

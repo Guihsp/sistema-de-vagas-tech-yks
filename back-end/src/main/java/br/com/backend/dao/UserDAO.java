@@ -125,7 +125,6 @@ public class UserDAO {
 
     public UserModel login(String email, String userPassword) {
         UserModel user = null;
-        System.out.println(email + " " + userPassword);
         String query = "SELECT * FROM \"user\" WHERE email = ? AND password = ?";
 
         try (Connection connection = DriverManager.getConnection(url, userBd, password);

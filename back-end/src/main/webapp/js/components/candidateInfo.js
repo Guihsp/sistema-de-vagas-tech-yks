@@ -1,4 +1,6 @@
 function createInfoUserComponent() {
+    const infoUser = localStorage.getItem("user");
+    const parsedInfoUser = JSON.parse(infoUser);
     const userProfile = `
         <div class="container">
             <div class="user-infos">
@@ -7,9 +9,9 @@ function createInfoUserComponent() {
                 </div>
                 
                 <div class="user-data">
-                    <p id="user-name">Guilherme henrique</p>
+                    <p id="user-name">${parsedInfoUser.name}</p>
                     <img src="./assets/Location.svg" alt="Localização">
-                    <span id="user-location">São Paulo - SP</span>
+                    <span id="user-location">${parsedInfoUser.location}</span>
                 </div>
             </div>
 

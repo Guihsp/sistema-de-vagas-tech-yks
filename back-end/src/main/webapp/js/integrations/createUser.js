@@ -6,7 +6,7 @@ function createUser() {
     };
     password = document.getElementById("senha").value
     confirmPassword = document.getElementById("confirmar-senha").value
-    if(password != confirmPassword){
+    if (password != confirmPassword) {
         alert("Senhas não conferem")
         return
     }
@@ -49,7 +49,8 @@ const getUserByEmail = async () => {
         xhr.onload = function () {
             if (xhr.status === 200) {
                 const pessoa = JSON.parse(xhr.responseText);
-                console.log("Usuário encontrado com sucesso!", pessoa);
+                localStorage.removeItem("user");
+                localStorage.removeItem("company");
                 localStorage.setItem("user", JSON.stringify(pessoa));
                 window.location.href = "./edcandidato.html";
                 resolve(pessoa);
