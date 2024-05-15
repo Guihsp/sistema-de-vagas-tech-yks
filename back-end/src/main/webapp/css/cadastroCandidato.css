@@ -1,0 +1,63 @@
+@import './global.css';
+
+.section-cadastro {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-cadastro .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 350px;
+    padding: 1.3rem;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+}
+
+.section-cadastro .form h1 {
+    color: var(--tertiary-color);
+    margin-bottom: 20px;
+}
+
+.section-cadastro .form .form-group {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-cadastro .form .form-group label {
+    color: var(--tertiary-color);
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.section-cadastro .form .form-group input {
+    padding: .3rem .5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+
+.section-cadastro .form .register-button {
+    width: 50%;
+    padding: .5rem;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--quaternary-color);
+    color: var(--tertiary-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.section-cadastro .form a {
+    color: var(--tertiary-color);
+    text-decoration: none;
+}

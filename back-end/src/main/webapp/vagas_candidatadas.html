@@ -1,95 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/edcandidato.css">
+    <link rel="stylesheet" href="./css/components/cardVacancy.css">
+    <link rel="stylesheet" href="./css/vagas_candidatadas.css">
     <link rel="stylesheet" href="./css/components/footer.css">
+    <link rel="stylesheet" href="./css/components/headerLogin.css">
+    <link rel="stylesheet" href="./css/components/userInfo.css">
+    <title>Vagas Candidatas</title>
 </head>
 <body>
     
     <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">
-                    <img src="./assets/logo.svg" alt="logo">
-                </a>
-
-                <ul class="nav-list">
-                    <img src="./assets/profile.svg" alt="">
-                    <li><a href="#" class="nav-link btn-perfil">Vitor Cobeio</a></li>
-                    <li>
-                        <button id="btn-menu">
-                            <span id="hamburger"></span>
-                        </button>
-                    </li>
-
-                    <li>
-                        <ul class="dropdown">
-                            <li>
-                                <a href="#" class="nav-link">
-                                    <img src="./assets/profile.svg" alt="">
-                                    <span>Perfil Candidato</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link">
-                                    <img src="./assets/add.svg" alt="adiciona">
-                                    <span>Minhas Vagas</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link">
-                                    <img src="./assets/list.svg" alt="lista">
-                                    <span>Editar Perfil</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link">
-                                    <img src="./assets/logout.svg" alt="logout">
-                                    <span>Sair</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-
-            </nav>
-        </div>
     </header>
 
-    <section class="section-usuario">
-        <div class="container">
-
-            <div class="info-box">
-                <img src="assets/profile.svg" alt="Imagem de Perfil" class="user-img">
-                <div class="infos">
-                    <h2 class="user-name">Vitor Cobeio</h2>
-                    <p class="user-location">
-                        <img src="./assets/Location.svg" alt="Localização">
-                        <span class="location">São Paulo - SP</span>
-                    </p>
-                </div>
-            </div>
-
-            <a href="#" class="btn-user-vagas">Minhas Vagas</a>
-
-        </div>
+    <section class="section-user-infos">
     </section>
 
 
-    <section class="section-dados">
+    <section class="section-info-vacancies">
         <div class="container">
             <h1>Vagas candidatadas</h1>
 
-            <p class="numeroDeVagas">Número de vagas candidatadas:</p>
+            <p>Número de vagas candidatadas:
+                <span class="numeroDeVagas">0</span>
+            </p>
 
+            <div class="vagas-content"></div>
+            
+
+        </div>
     </section>
 
 
     <footer></footer>
     
+
+    <script src="./js/components/card.js"></script>
+    <script src="./js/components/candidateInfo.js"></script>
+    <script src="./js/components/headerCandidate.js"></script>
     <script src="./js/components/footer.js"></script>
 
 </body>

@@ -1,4 +1,4 @@
-function createInfoCompanyComponent() {
+function createInfoUserComponent() {
     const userProfile = `
         <div class="container">
             <div class="user-infos">
@@ -23,5 +23,5 @@ function createInfoCompanyComponent() {
     return userProfile;
 }
 
-const userProfileComponent = createInfoCompanyComponent();
+const userProfileComponent = createInfoUserComponent();
 document.querySelector('.section-user-infos').innerHTML = userProfileComponent;

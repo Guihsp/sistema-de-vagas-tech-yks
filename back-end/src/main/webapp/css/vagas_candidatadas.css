@@ -1,0 +1,27 @@
+@import './global.css';
+
+
+.section-info-vacancies{
+    padding: 3.688rem 0;
+    flex: 1 0 auto;
+}
+
+.section-info-vacancies p {
+    color: var(--primary-color);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.numeroDeVagas {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    font-weight: 300;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}

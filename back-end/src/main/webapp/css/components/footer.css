@@ -3,6 +3,7 @@ footer {
     color: var(--tertiary-color); 
     height: 10vh; 
     width: 100%;
+    flex-shrink: 0;
 } 
     
 footer .container { 

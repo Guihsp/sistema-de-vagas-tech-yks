@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/cadastroCandidato.css">
+    <link rel="stylesheet" href="./css/components/header.css">
+    <link rel="stylesheet" href="./css/components/footer.css">
+    <title>Cadastro</title>
+</head>
+
+<body>
+
+    <header></header>
+
+    <section class="section-cadastro">
+        
+        <form class="form">
+            <h1>Cadastro candidato</h1>
+
+            <div class="form-group">
+                <label for="nome">Name:</label>
+                <input type="text" id="nome" name="nome">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Senha:</label>
+                <input type="password" id="senha" name="senha">
+            </div>
+
+            <div class="form-group">
+                <label id="confirm-password" for="confirmar-senha">Confirmar Senha:</label>
+                <input type="password" name="confirmar-senha" id="confirmar-senha">
+            </div>
+
+            <button class="register-button" id="cadastrarButton" type="button">
+                Cadastrar
+            </button>
+
+
+            <a href="./cadastro_empresa.html">Sou empresa ></a>
+        </form>
+    </section>
+
+    
+    <footer></footer>
+    
+    <script src="./js/components/header.js"></script>
+    <script src="./js/components/footer.js"></script>
+    <script src="./js/integrations/createUser.js"></script>
+
+</body>
+
+</html>

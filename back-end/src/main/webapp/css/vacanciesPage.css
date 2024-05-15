@@ -11,6 +11,11 @@
     align-items: center;
 }
 
+.section-vacancies{
+    padding: 3.688rem 0;
+    flex: 1 0 auto;
+}
+
 .vagas-content {
     padding: 5rem 0;
     display: flex;
