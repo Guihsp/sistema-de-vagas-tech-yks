@@ -122,4 +122,32 @@ public class UserDAO {
         }
         return users;
     }
+
+    public UserModel login(String email, String userPassword) {
+        UserModel user = null;
+        System.out.println(email + " " + userPassword);
+        String query = "SELECT * FROM \"user\" WHERE email = ? AND password = ?";
+
+        try (Connection connection = DriverManager.getConnection(url, userBd, password);
+                PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setString(1, email);
+            ps.setString(2, userPassword);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    int id = rs.getInt("id");
+                    String name = rs.getString("name");
+                    String phoneNumber = rs.getString("phoneNumber");
+                    String information = rs.getString("information");
+                    String location = rs.getString("location");
+
+                    user = new UserModel(id, name, email, phoneNumber, information, location);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return user;
+    }
 }
