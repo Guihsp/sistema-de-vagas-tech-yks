@@ -1,6 +1,6 @@
 
 function createDescription() {
-    const description = document.createElement('description');
+    const description = document.createElement('div');
     description.className = 'description';
 
     description.innerHTML = `
@@ -15,18 +15,15 @@ function createDescription() {
 
     <div class="requirements">
         <h1>Requisitos</h1>
-        <ul>
-            <li>-Formação em ensino superior ou técnico;</li>
-            <li>-Inglês Intermediário;</li>
-            <li>-Experiência com ferramentas de versionamento de código (GIT,...);</li>
-            <li>-Conhecimento em metodologias ágeis (Scrum/Kanban);</li>
-            <li>-Noções básicas de API</li>
-            <li>-Diferenciais</li>
-            <li>-Experiencia com ReactJs</li>
-            <li>-Conhecimento de aprendizado de máquina e suas ferramentas, tais como Scikit-learn e PyTorch.
-            </li>
-            <li>-Conhecimento básico em ferramentas de LLM tais como ChatGPT, Llama, outro.</li>
-        </ul>
+            <p>-Formação em ensino superior ou técnico;
+            -Inglês Intermediário;
+            -Experiência com ferramentas de versionamento de código (GIT,...);
+            -Conhecimento em metodologias ágeis (Scrum/Kanban);
+            -Noções básicas de API
+            -Diferenciais
+            -Experiencia com ReactJs
+            -Conhecimento de aprendizado de máquina e suas ferramentas, tais como Scikit-learn e PyTorch.
+            -Conhecimento básico em ferramentas de LLM tais como ChatGPT, Llama, outro.</p>
     </div>
 
     <div class="salary">
