@@ -139,7 +139,12 @@ public class VacancyDAO {
     public VacancyModel getVacancyById(int id) {
         VacancyModel vacancy = new VacancyModel();
         VacancyDAO vacancyDAO = new VacancyDAO(url, userBd, password);
-        String postgresql = "SELECT * FROM \"vacancy\" WHERE \"id\" = ?";
+        String postgresql = "SELECT v.*, c.\"name\" as company_name, c.email as company_email, c.description as company_description, "
+                +
+                "c.information as company_information, c.location as company_location " +
+                "FROM \"vacancy\" v " +
+                "JOIN \"company\" c ON v.company_id = c.id " +
+                "WHERE v.id = ? ";
         try (PreparedStatement ps = vacancyDAO.connection.prepareStatement(postgresql)) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
@@ -150,6 +155,11 @@ public class VacancyDAO {
                 vacancy.setSalary(rs.getString("salary"));
                 vacancy.setRequeriments(rs.getString("requeriments"));
                 vacancy.setCompanyId(rs.getInt("company_id"));
+                vacancy.setCompanyName(rs.getString("company_name"));
+                vacancy.setCompanyEmail(rs.getString("company_email"));
+                vacancy.setCompanyDescription(rs.getString("company_description"));
+                vacancy.setCompanyInformation(rs.getString("company_information"));
+                vacancy.setLocation(rs.getString("location"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
