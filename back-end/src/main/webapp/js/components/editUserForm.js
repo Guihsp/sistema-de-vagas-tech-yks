@@ -1,5 +1,6 @@
-
 function createForm() {
+    const infoUser = localStorage.getItem("user");
+    const parsedInfoUser = JSON.parse(infoUser);
     const form = document.createElement('form');
     form.innerHTML = `
     <form action="">
@@ -17,8 +18,63 @@ function createForm() {
 </form>
     `;
 
+    if (parsedInfoUser) {
+        form.querySelector('#name').value = parsedInfoUser.name;
+        form.querySelector('#description').value = parsedInfoUser.information;
+        form.querySelector('#location').value = parsedInfoUser.location;
+        form.querySelector('#email').value = parsedInfoUser.email;
+    }
+
     return form;
 }
 
 const formElement = createForm();
 document.querySelector('form').appendChild(formElement);
+
+const updateUser = async () => {
+    const name = document.querySelector('#name').value;
+    const description = document.querySelector('#description').value;
+    const location = document.querySelector('#location').value;
+    const email = document.querySelector('#email').value;
+
+    let infoUser = {
+        name,
+        email,
+        information: description,
+        location,
+    }
+    const userLocal = localStorage.getItem("user");
+    const parsedInfoUser = JSON.parse(userLocal);
+
+    const jsonData = JSON.stringify(infoUser);
+
+    const xhr = new XMLHttpRequest();
+    const url = `http://localhost:8080/api/updateUser/${parsedInfoUser.id}`;
+
+    xhr.open("PUT", url, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            console.log("Usuário atualizado com sucesso!");
+            infoUser = {
+                id: parsedInfoUser.id,
+                name,
+                email,
+                information: description,
+                location
+            }
+            localStorage.setItem("user", JSON.stringify(infoUser));
+
+            window.location.href = "./edcandidato.html";
+        } else {
+            console.error("Erro ao atualizar usuário:", xhr.responseText);
+        }
+    };
+
+    xhr.onerror = function () {
+        console.error("Erro de conexão.");
+    };
+
+    xhr.send(jsonData);
+}

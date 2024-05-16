@@ -149,4 +149,22 @@ public class UserDAO {
 
         return user;
     }
+
+    public UserModel updateUser(UserModel user) {
+        String query = "UPDATE \"user\" SET name = ?, email = ?, information = ?, location = ? WHERE id = ?";
+        try (Connection connection = DriverManager.getConnection(url, userBd, password);
+                PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setString(1, user.getName());
+            ps.setString(2, user.getEmail());
+            ps.setString(3, user.getInformation());
+            ps.setString(4, user.getLocation());
+            ps.setInt(5, user.getId());
+
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return user;
+    }
 }
