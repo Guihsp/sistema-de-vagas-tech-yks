@@ -12,7 +12,6 @@ public class UserModel {
     private String location;
     private ArrayList<VacancyModel> vacancies;
 
-
     public UserModel(int id, String name, String email, String phoneNumber, String information, String location) {
         this.id = id;
         this.name = name;
@@ -23,9 +22,6 @@ public class UserModel {
     }
 
     public UserModel() {
-    }
-
-    public UserModel(String joãoSilva, String mail, String s) {
     }
 
     public UserModel(int id, String name, String email, String password, String phoneNumber, String information,
@@ -111,7 +107,7 @@ public class UserModel {
     }
 
     public String getLocation() {
-        return this.email;
+        return this.location;
     }
 
     public void setLocation(String location) {
@@ -133,4 +129,5 @@ public class UserModel {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+    
 }
