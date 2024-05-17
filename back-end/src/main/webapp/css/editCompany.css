@@ -1,0 +1,21 @@
+@import './global.css';
+
+.section-edit-form {
+    flex: 1 0 auto;
+    padding: 5rem 0;
+}
+
+.section-edit-form h1 {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.section-edit-form h1::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 5px;
+    background-color: var(--primary-color);
+}
+
+

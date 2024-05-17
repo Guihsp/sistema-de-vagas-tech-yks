@@ -1,0 +1,44 @@
+.section-edit-form .form {
+    width: 70%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--quaternary-color);
+}
+
+.section-edit-form .form .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.section-edit-form .form .form-group label {
+    color: var(--quaternary-color);
+    font-weight: 500;
+}
+
+.section-edit-form .form .form-group input,
+.section-edit-form .form .form-group textarea
+{
+    width: 100%;
+    padding: 0.3rem;
+    margin-top: 0.5rem;
+    border: 2px solid var(--quaternary-color);
+    resize: none;
+}
+
+.section-edit-form .form .edit-btn {
+    padding: .7rem 3rem;
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    width: 200px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
