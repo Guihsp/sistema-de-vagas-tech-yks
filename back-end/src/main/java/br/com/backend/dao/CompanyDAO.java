@@ -14,7 +14,7 @@ public class CompanyDAO {
 
     String url = "jdbc:postgresql://kesavan.db.elephantsql.com:5432/yhplxddp";
     String userBd = "yhplxddp";
-    String password = "9QyVOyvzaonnEoe1oE5K-m6BbwoiQAo_";
+    String password = "qK1PIX6oV92RAwOGYzqf4kA40NPk8Ohn";
 
     public CompanyDAO() {
     }

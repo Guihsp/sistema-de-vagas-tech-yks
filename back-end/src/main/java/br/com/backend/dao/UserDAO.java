@@ -16,7 +16,7 @@ public class UserDAO {
 
     String url = "jdbc:postgresql://kesavan.db.elephantsql.com:5432/yhplxddp";
     String userBd = "yhplxddp";
-    String password = "9QyVOyvzaonnEoe1oE5K-m6BbwoiQAo_";
+    String password = "qK1PIX6oV92RAwOGYzqf4kA40NPk8Ohn";
 
     public UserDAO() {
     }
@@ -91,6 +91,7 @@ public class UserDAO {
             user.setEmail(rs.getString("email"));
             user.setInformation(rs.getString("information"));
             user.setPhoneNumber(rs.getString("phoneNumber"));
+            user.setLocation(rs.getString("location"));
         } catch (SQLException e) {
             e.printStackTrace();
         }

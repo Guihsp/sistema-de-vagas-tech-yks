@@ -4,7 +4,7 @@ function createCard(users) {
 
     for (let i = 0; i < users.length; i++) {
         card.innerHTML = `  
-        <li class="candidate">
+        <li class="candidate" onclick="redirect(${users[i].id})">
                 <img src="./assets/profile.svg" alt="imagem de perfil">
                 <span class="candidate-name">${users[i].name}</span>
         </li>
@@ -21,6 +21,12 @@ async function createAndAppendCard(vacancyId) {
     } catch (error) {
         console.error("Erro ao buscar usuários:", error);
     }
+}
+
+const redirect = (id) => {
+    localStorage.removeItem("userId");
+    localStorage.setItem("userId", id);
+    window.location.href = "./candidateProfile.html";
 }
 
 const fundUsersByVacancy = async (vacancyId) => {

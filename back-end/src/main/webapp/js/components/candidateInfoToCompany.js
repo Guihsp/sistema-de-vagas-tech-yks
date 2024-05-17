@@ -14,11 +14,6 @@ function createInfoUserComponent() {
                     <span id="user-location">${parsedInfoUser.location}</span>
                 </div>
             </div>
-
-            <div class="box-btn">
-                <a href="./edcandidato.html" class="btn">Editar Perfil</a>
-                <a href="./vagas_candidatadas.html" class="btn">Minhas Vagas</a>
-            </div>
         </div>
     `;
 
