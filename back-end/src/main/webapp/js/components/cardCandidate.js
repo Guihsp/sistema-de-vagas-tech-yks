@@ -1,4 +1,30 @@
 function createCard(users) {
+    const vacancy = JSON.parse(localStorage.getItem("vacancy"));
+
+    const vancancyInfos = document.createElement('div');
+    vancancyInfos.className = 'infos';
+
+    vancancyInfos.innerHTML = `
+    <p class="vancancy-name">${vacancy.title}</p>
+
+    <ul>
+        <li>
+            <img src="./assets/briefcase.svg" alt="Pasta">
+            <span class="company-name">${vacancy.companyName}</span>
+        </li>
+    
+        <li>
+            <img src="./assets/Location.svg" alt="Localização">
+            <span class="location-vancancy">${vacancy.location}</span>
+        </li>
+
+        <li>
+            <img src="./assets/cash.svg" alt="Dinheiro">
+            <span class="salary-vancancy">${vacancy.salary}</span>
+        </li>
+    </ul>
+    `;
+    document.querySelector('.info-box').appendChild(vancancyInfos);
 
     const numberVancancy = document.createElement('div');
     numberVancancy.className = 'num-candidates-vancancy';

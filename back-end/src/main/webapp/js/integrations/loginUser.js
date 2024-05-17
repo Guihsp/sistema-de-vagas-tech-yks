@@ -19,7 +19,7 @@ function userLogin() {
             localStorage.removeItem("user");
             localStorage.removeItem("company");
             localStorage.setItem("user", user);
-            window.location.href = "./edcandidato.html";
+            window.location.href = "./candidateProfile.html";
         } else {
             console.error("Erro ao fazer login:", xhr.responseText);
         }
