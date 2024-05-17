@@ -19,10 +19,10 @@ function createForm() {
     `;
 
     if (parsedInfoUser) {
-        form.querySelector('#name').value = parsedInfoUser.name;
-        form.querySelector('#description').value = parsedInfoUser.information;
-        form.querySelector('#location').value = parsedInfoUser.location;
-        form.querySelector('#email').value = parsedInfoUser.email;
+        form.querySelector('#name').value = parsedInfoUser.name ? parsedInfoUser.name : "";
+        form.querySelector('#description').value = parsedInfoUser.information ? parsedInfoUser.information : "";
+        form.querySelector('#location').value = parsedInfoUser.location ? parsedInfoUser.location : "";
+        form.querySelector('#email').value = parsedInfoUser.email ? parsedInfoUser.email : "";
     }
 
     return form;

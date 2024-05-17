@@ -52,7 +52,7 @@ const getCompanyByEmail = async () => {
                 localStorage.removeItem("user");
                 localStorage.removeItem("company");
                 localStorage.setItem("company", JSON.stringify(company));
-                window.location.href = "./pagina_vagas_abertas.html";
+                window.location.href = "./editCompany.html";
                 resolve(company);
             } else {
                 console.error("Erro ao buscar usuário:", xhr.responseText);
