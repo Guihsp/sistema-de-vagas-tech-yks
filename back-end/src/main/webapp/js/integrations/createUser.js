@@ -52,7 +52,7 @@ const getUserByEmail = async () => {
                 localStorage.removeItem("user");
                 localStorage.removeItem("company");
                 localStorage.setItem("user", JSON.stringify(pessoa));
-                window.location.href = "./edcandidato.html";
+                window.location.href = "./candidateProfile.html";
                 resolve(pessoa);
             } else {
                 console.error("Erro ao buscar usuário:", xhr.responseText);

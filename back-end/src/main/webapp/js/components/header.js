@@ -10,7 +10,7 @@ function createHeader() {
                     <li><a href="./vacanciesPage.html" class="nav-link">Ver Vagas</a></li>
                     <li><a href="./login_empresa.html" class="nav-link">Para Empresas</a></li>
                     <li><a href="./login.html" class="nav-link btn-entrar">Entrar</a></li>
-                    <li><a href="./candidato.html" class="nav-link btn-cadastrar">Cadastre-se</a></li>
+                    <li><a href="./cadastroCandidato.html" class="nav-link btn-cadastrar">Cadastre-se</a></li>
                 </ul>
 
             </nav>
