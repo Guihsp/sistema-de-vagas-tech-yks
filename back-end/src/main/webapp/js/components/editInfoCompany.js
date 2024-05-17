@@ -1,5 +1,8 @@
 
 function createinfoCompany() {
+    const companyInfo = localStorage.getItem("company");
+    const parsedInfoCompany = JSON.parse(companyInfo);
+
     const infoCompany = document.createElement('infoCompany');
     infoCompany.className = 'infoCompany';
 
@@ -9,19 +12,19 @@ function createinfoCompany() {
                     <img src="assets/logo-empresa.svg" alt="Imagem de Perfil da Empresa">
 
                     <div class="infos">
-                        <p class="company-name">Canes</p>
+                        <p class="company-name">${parsedInfoCompany.name}</p>
 
                         <ul>
                             <li>
                                 <img src="assets/Location.svg" alt="Localização">
-                                <span class="location-company">São Paulo - SP</span>
+                                <span class="location-company">${parsedInfoCompany.location}</span>
                             </li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="box-btn">
-                    <a href="#" class="btn-editar">Editar Perfil</a>
+                    <a href="./editCompany.html" class="btn-editar">Editar Perfil</a>
                 </div>
 
             </div>

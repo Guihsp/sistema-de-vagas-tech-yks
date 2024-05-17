@@ -1,5 +1,7 @@
 
 function createinfoUser() {
+    const info = localStorage.getItem("user");
+    const parsedInfoUser = JSON.parse(info);
     const infoUser = document.createElement('infoUser');
     infoUser.className = 'infoUser';
 
@@ -8,14 +10,14 @@ function createinfoUser() {
         <div class="info-box">
             <img src="assets/profile.svg" alt="Imagem de Perfil" class="user-img">
             <div class="infos">
-                <h2 class="user-name">Vitor Cobeio</h2>
+                <h2 class="user-name">${parsedInfoUser.name}</h2>
                 <p class="user-location">
                     <img src="./assets/Location.svg" alt="Localização">
-                    <span class="location">São Paulo - SP</span>
+                    <span class="location">${parsedInfoUser.location}</span>
                 </p>
             </div>
         </div>
-        <a href="#" class="btn-user-vagas">Minhas Vagas</a>
+        <a href="./vagas_candidatadas.html" class="btn-user-vagas">Minhas Vagas</a>
     </div>
     `;
 
