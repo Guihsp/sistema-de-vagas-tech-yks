@@ -1,4 +1,15 @@
 function createCard(users) {
+
+    const numberVancancy = document.createElement('div');
+    numberVancancy.className = 'num-candidates-vancancy';
+
+    numberVancancy.innerHTML = `
+        <p>Número de Candidatos na vaga: </p>
+        <span class="num-candidates">${users.length}</span>
+    `;
+
+    document.querySelector('.candidate-list').appendChild(numberVancancy);
+
     const card = document.createElement('div');
     card.classList.add('card');
 
