@@ -12,9 +12,9 @@ import br.com.backend.model.CompanyModel;
 public class CompanyDAO {
     private Connection connection;
 
-    String url = "jdbc:postgresql://kesavan.db.elephantsql.com:5432/yhplxddp";
-    String userBd = "yhplxddp";
-    String password = "qK1PIX6oV92RAwOGYzqf4kA40NPk8Ohn";
+    String url = "jdbc:postgresql://tech-yks.postgres.database.azure.com/postgres";
+    String userBd = "tech";
+    String password = "entregaPI.2024";
 
     public CompanyDAO() {
     }
