@@ -41,7 +41,6 @@ function createJobCards(vacancies) {
 
 const getCurrentPage = () => {
     const currentPage = window.location.pathname;
-    console.log("Current page:", currentPage);
     return currentPage;
 };
 
@@ -89,7 +88,6 @@ const vacancysIndexPage = async () => {
 };
 
 const redirectToVacancyPage = (indexVacancy) => {
-    console.log("Index da vaga:", indexVacancy);
     const vacancies = JSON.parse(localStorage.getItem("vacancies"));
     localStorage.removeItem("vacancyId");
     localStorage.setItem("vacancyId", vacancies[indexVacancy].id);

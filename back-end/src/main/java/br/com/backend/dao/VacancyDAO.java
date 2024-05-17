@@ -200,4 +200,39 @@ public class VacancyDAO {
         }
         return vacancies;
     }
+
+    public ArrayList<VacancyModel> getVacanciesByUserId(int user_id) {
+        ArrayList<VacancyModel> vacancies = new ArrayList<VacancyModel>();
+        VacancyDAO vacancyDAO = new VacancyDAO(url, userBd, password);
+        String postgresql = "SELECT v.*, c.\"name\" as company_name, c.email as company_email, c.description as company_description, "
+                +
+                "c.information as company_information, c.location as company_location " +
+                "FROM \"vacancy\" v " +
+                "JOIN \"company\" c ON v.company_id = c.id " +
+                "JOIN \"candidates\" ca ON v.id = ca.vacancy_id " +
+                "WHERE ca.user_id = ? " +
+                "ORDER BY v.\"id\" DESC";
+        try (PreparedStatement ps = vacancyDAO.connection.prepareStatement(postgresql)) {
+            ps.setInt(1, user_id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                VacancyModel vacancy = new VacancyModel();
+                vacancy.setId(rs.getInt("id"));
+                vacancy.setTitle(rs.getString("title"));
+                vacancy.setDescription(rs.getString("description"));
+                vacancy.setSalary(rs.getString("salary"));
+                vacancy.setRequeriments(rs.getString("requeriments"));
+                vacancy.setCompanyId(rs.getInt("company_id"));
+                vacancy.setCompanyName(rs.getString("company_name"));
+                vacancy.setCompanyEmail(rs.getString("company_email"));
+                vacancy.setCompanyDescription(rs.getString("company_description"));
+                vacancy.setCompanyInformation(rs.getString("company_information"));
+                vacancy.setLocation(rs.getString("location"));
+                vacancies.add(vacancy);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return vacancies;
+    }
 }
