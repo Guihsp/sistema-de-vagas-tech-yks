@@ -1,9 +1,12 @@
 function createInfoCompanyComponent() {
-    const userProfile = `
+    const userProfile =  document.createElement('div');
+    userProfile.classList.add('user-infos');
+
+    userProfile.innerHTML =`
         <div class="container">
             <div class="user-infos">
                 <div class="user-img">
-                    <img src="./assets/profile.svg" alt="Foto de perfil">
+                    <img src="./assets/logo-empresa.svg" alt="Foto de perfil">
                 </div>
                 
                 <div class="user-data">
@@ -24,4 +27,4 @@ function createInfoCompanyComponent() {
 }
 
 const userProfileComponent = createInfoCompanyComponent();
-document.querySelector('.section-user-infos').innerHTML = userProfileComponent;
+document.querySelector('.section-user-infos').appendChild(userProfileComponent);
