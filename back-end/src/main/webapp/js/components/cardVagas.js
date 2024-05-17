@@ -9,14 +9,15 @@ function createJobCards(vacancies) {
         `;
     vagasContent.innerHTML = numVancancyHTML;
 
+    let index = 0;
     vacancies.forEach(job => {
         const card = `
-            <div class="card" onclick="redirectToVacancyPage(${job.id})">
-            <a onclick="redirectToVacancyPage(${job.id})">
+            <div class="card" onclick="redirectToVacancyPage(${index})">
+            <a onclick="redirectToVacancyPage(${index})">
                         <img src="./assets/logo-empresa.svg" alt="" class="logo-empresa">
                     </a>
                     <div class="vaga-infos">
-                    <a onclick="redirectToVacancyPage(${job.id})">${job.title}</a>
+                    <a onclick="redirectToVacancyPage(${index})">${job.title}</a>
                         <div class="row">
                             <img src="./assets/location.svg" alt="">
                             <p>${job.location}</p>
@@ -30,6 +31,8 @@ function createJobCards(vacancies) {
             `;
 
         vagasContent.insertAdjacentHTML('beforeend', card);
+
+        index++;
     });
 
     const numVagasElement = document.querySelector('.num-vagas');
@@ -44,11 +47,11 @@ const getCurrentPage = () => {
 
 const vacancysIndexPage = async () => {
     const company = JSON.parse(localStorage.getItem("company"));
-
+    
     return new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest();
         let url;
-
+        
         if (getCurrentPage() === "/") {
             url = `http://localhost:8080/api/find3LastVacancy`;
         } else if (getCurrentPage() === "/vacanciesPage.html") {
@@ -59,15 +62,17 @@ const vacancysIndexPage = async () => {
             reject("Página não reconhecida.");
             return;
         }
-
+        
         xhr.open("GET", url, true);
         xhr.setRequestHeader("Content-Type", "application/json");
-
+        
         xhr.onload = function () {
             if (xhr.status === 200) {
                 const vacancies = JSON.parse(xhr.responseText);
                 vagasAbertas = vacancies.length;
                 createJobCards(vacancies);
+                localStorage.removeItem("vacancies");
+                localStorage.setItem("vacancies", JSON.stringify(vacancies));
                 resolve(vacancies);
             } else {
                 console.error("Erro ao buscar vagas:", xhr.responseText);
@@ -83,8 +88,12 @@ const vacancysIndexPage = async () => {
     });
 };
 
-const redirectToVacancyPage = (vacancyId) => {
-    localStorage.setItem("vacancyId", vacancyId);
+const redirectToVacancyPage = (indexVacancy) => {
+    console.log("Index da vaga:", indexVacancy);
+    const vacancies = JSON.parse(localStorage.getItem("vacancies"));
+    localStorage.removeItem("vacancyId");
+    localStorage.setItem("vacancyId", vacancies[indexVacancy].id);
+    localStorage.setItem("vacancy", JSON.stringify(vacancies[indexVacancy]));
     window.location.href = "candidateList.html";
 }
 
