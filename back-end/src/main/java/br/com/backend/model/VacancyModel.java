@@ -13,7 +13,7 @@ public class VacancyModel {
     private String companyName;
     private String companyEmail;
     private String companyDescription;
-    private String companyInformation;
+    private String companyCnpj;
     private String location;
 
     public VacancyModel() {
@@ -103,12 +103,12 @@ public class VacancyModel {
         this.companyDescription = companyDescription;
     }
 
-    public String getCompanyInformation() {
-        return this.companyInformation;
+    public String getCompanyCnpj() {
+        return this.companyCnpj;
     }
 
-    public void setCompanyInformation(String companyInformation) {
-        this.companyInformation = companyInformation;
+    public void setCompanyCnpj(String companyCnpj) {
+        this.companyCnpj = companyCnpj;
     }
 
     public String getLocation() {

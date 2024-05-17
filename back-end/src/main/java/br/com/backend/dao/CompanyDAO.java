@@ -70,10 +70,10 @@ public class CompanyDAO {
                     int id = rs.getInt("id");
                     String name = rs.getString("name");
                     String description = rs.getString("description");
-                    String information = rs.getString("information");
+                    String cnpj = rs.getString("cnpj");
                     String location = rs.getString("location");
 
-                    company = new CompanyModel(id, name, email, description, information, location);
+                    company = new CompanyModel(id, name, email, description, cnpj, location);
                 }
             }
         } catch (SQLException e) {
@@ -97,10 +97,10 @@ public class CompanyDAO {
                     String name = rs.getString("name");
                     String password = rs.getString("password");
                     String description = rs.getString("description");
-                    String information = rs.getString("information");
+                    String cnpj = rs.getString("cnpj");
                     String location = rs.getString("location");
 
-                    company = new CompanyModel(id, name, email, password, description, information, location);
+                    company = new CompanyModel(id, name, email, password, description, cnpj, location);
                 }
             }
         } catch (SQLException e) {
@@ -122,6 +122,55 @@ public class CompanyDAO {
             company.setId(rs.getInt("id"));
             company.setName(rs.getString("name"));
             company.setEmail(rs.getString("email"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return company;
+    }
+
+    public CompanyModel getCompanyById(int id) {
+        CompanyModel company = null;
+        String query = "SELECT * FROM company WHERE id = ?";
+
+        try (Connection connection = DriverManager.getConnection(url, userBd, password);
+                PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setInt(1, id);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    String name = rs.getString("name");
+                    String email = rs.getString("email");
+                    String description = rs.getString("description");
+                    String cnpj = rs.getString("cnpj");
+                    String location = rs.getString("location");
+
+                    company = new CompanyModel(id, name, email, description, cnpj, location);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return company;
+    }
+
+    public CompanyModel updateCompany(CompanyModel company) {
+        CompanyDAO companyDAO = new CompanyDAO(url, userBd, password);
+        String postgresql = "UPDATE \"company\" SET \"name\" = ?, \"email\" = ?, \"description\" = ?, \"cnpj\" = ?, \"location\" = ? WHERE \"id\" = ?";
+        try (PreparedStatement ps = companyDAO.connection.prepareStatement(postgresql, Statement.RETURN_GENERATED_KEYS)) {
+            ps.setString(1, company.getName());
+            ps.setString(2, company.getEmail());
+            ps.setString(3, company.getDescription());
+            ps.setString(4, company.getCnpj());
+            ps.setString(5, company.getLocation());
+            ps.setInt(6, company.getId());
+
+            int affectedRows = ps.executeUpdate();
+
+            if (affectedRows == 0) {
+                throw new SQLException("Falha ao atualizar empresa, nenhum registro afetado.");
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

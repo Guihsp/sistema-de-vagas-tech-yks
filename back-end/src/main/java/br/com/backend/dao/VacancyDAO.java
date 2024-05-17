@@ -65,7 +65,7 @@ public class VacancyDAO {
         VacancyDAO vacancyDAO = new VacancyDAO(url, userBd, password);
         String postgresql = "SELECT v.*, c.\"name\" as company_name, c.email as company_email, c.description as company_description, "
                 +
-                "c.information as company_information, c.location as company_location " +
+                "c.cnpj as company_cnpj, c.location as company_location " +
                 "FROM \"vacancy\" v " +
                 "JOIN \"company\" c ON v.company_id = c.id " +
                 "ORDER BY v.\"id\" DESC LIMIT 3";
@@ -82,7 +82,7 @@ public class VacancyDAO {
                 vacancy.setCompanyName(rs.getString("company_name"));
                 vacancy.setCompanyEmail(rs.getString("company_email"));
                 vacancy.setCompanyDescription(rs.getString("company_description"));
-                vacancy.setCompanyInformation(rs.getString("company_information"));
+                vacancy.setCompanyCnpj(rs.getString("company_cnpj"));
                 vacancy.setLocation(rs.getString("location"));
                 vacancies.add(vacancy);
             }
@@ -97,7 +97,7 @@ public class VacancyDAO {
         VacancyDAO vacancyDAO = new VacancyDAO(url, userBd, password);
         String postgresql = "SELECT v.*, c.\"name\" as company_name, c.email as company_email, c.description as company_description, "
                 +
-                "c.information as company_information, c.location as company_location " +
+                "c.cnpj as company_cnpj, c.location as company_location " +
                 "FROM \"vacancy\" v " +
                 "JOIN \"company\" c ON v.company_id = c.id " +
                 "ORDER BY v.\"id\" DESC";
@@ -114,7 +114,7 @@ public class VacancyDAO {
                 vacancy.setCompanyName(rs.getString("company_name"));
                 vacancy.setCompanyEmail(rs.getString("company_email"));
                 vacancy.setCompanyDescription(rs.getString("company_description"));
-                vacancy.setCompanyInformation(rs.getString("company_information"));
+                vacancy.setCompanyCnpj(rs.getString("company_cnpj"));
                 vacancy.setLocation(rs.getString("location"));
                 vacancies.add(vacancy);
             }
@@ -141,7 +141,7 @@ public class VacancyDAO {
         VacancyDAO vacancyDAO = new VacancyDAO(url, userBd, password);
         String postgresql = "SELECT v.*, c.\"name\" as company_name, c.email as company_email, c.description as company_description, "
                 +
-                "c.information as company_information, c.location as company_location " +
+                "c.cnpj as company_cnpj, c.location as company_location " +
                 "FROM \"vacancy\" v " +
                 "JOIN \"company\" c ON v.company_id = c.id " +
                 "WHERE v.id = ? ";
@@ -158,7 +158,7 @@ public class VacancyDAO {
                 vacancy.setCompanyName(rs.getString("company_name"));
                 vacancy.setCompanyEmail(rs.getString("company_email"));
                 vacancy.setCompanyDescription(rs.getString("company_description"));
-                vacancy.setCompanyInformation(rs.getString("company_information"));
+                vacancy.setCompanyCnpj(rs.getString("company_cnpj"));
                 vacancy.setLocation(rs.getString("location"));
             }
         } catch (SQLException e) {
@@ -172,7 +172,7 @@ public class VacancyDAO {
         VacancyDAO vacancyDAO = new VacancyDAO(url, userBd, password);
         String postgresql = "SELECT v.*, c.\"name\" as company_name, c.email as company_email, c.description as company_description, "
                 +
-                "c.information as company_information, c.location as company_location " +
+                "c.cnpj as company_cnpj, c.location as company_location " +
                 "FROM \"vacancy\" v " +
                 "JOIN \"company\" c ON v.company_id = c.id " +
                 "WHERE v.company_id = ? " + // Adicionando a cláusula WHERE
@@ -191,7 +191,7 @@ public class VacancyDAO {
                 vacancy.setCompanyName(rs.getString("company_name"));
                 vacancy.setCompanyEmail(rs.getString("company_email"));
                 vacancy.setCompanyDescription(rs.getString("company_description"));
-                vacancy.setCompanyInformation(rs.getString("company_information"));
+                vacancy.setCompanyCnpj(rs.getString("company_cnpj"));
                 vacancy.setLocation(rs.getString("location"));
                 vacancies.add(vacancy);
             }
@@ -206,7 +206,7 @@ public class VacancyDAO {
         VacancyDAO vacancyDAO = new VacancyDAO(url, userBd, password);
         String postgresql = "SELECT v.*, c.\"name\" as company_name, c.email as company_email, c.description as company_description, "
                 +
-                "c.information as company_information, c.location as company_location " +
+                "c.cnpj as company_cnpj, c.location as company_location " +
                 "FROM \"vacancy\" v " +
                 "JOIN \"company\" c ON v.company_id = c.id " +
                 "JOIN \"candidates\" ca ON v.id = ca.vacancy_id " +
@@ -226,7 +226,7 @@ public class VacancyDAO {
                 vacancy.setCompanyName(rs.getString("company_name"));
                 vacancy.setCompanyEmail(rs.getString("company_email"));
                 vacancy.setCompanyDescription(rs.getString("company_description"));
-                vacancy.setCompanyInformation(rs.getString("company_information"));
+                vacancy.setCompanyCnpj(rs.getString("company_cnpj"));
                 vacancy.setLocation(rs.getString("location"));
                 vacancies.add(vacancy);
             }

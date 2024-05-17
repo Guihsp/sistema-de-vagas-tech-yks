@@ -8,7 +8,7 @@ public class CompanyModel {
     private String email;
     private String password;
     private String description;
-    private String information;
+    private String cnpj;
     private String location;
     private ArrayList<VacancyModel> vacancies;
 
@@ -20,37 +20,37 @@ public class CompanyModel {
     public CompanyModel() {
     }
 
-    public CompanyModel(int id, String name, String email, String password, String description, String information,
+    public CompanyModel(int id, String name, String email, String password, String description, String cnpj,
             String location) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
         this.description = description;
-        this.information = information;
+        this.cnpj = cnpj;
         this.location = location;
         this.vacancies = new ArrayList<VacancyModel>();
     }
 
-    public CompanyModel(int id, String name, String email, String password, String description, String information,
+    public CompanyModel(int id, String name, String email, String password, String description, String cnpj,
             String location, ArrayList<VacancyModel> vacancies) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
         this.description = description;
-        this.information = information;
+        this.cnpj = cnpj;
         this.location = location;
         this.vacancies = vacancies;
     }
 
-    public CompanyModel(int id, String name, String email, String description, String information,
+    public CompanyModel(int id, String name, String email, String description, String cnpj,
             String location) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.description = description;
-        this.information = information;
+        this.cnpj = cnpj;
         this.location = location;
     }
 
@@ -70,12 +70,12 @@ public class CompanyModel {
         this.vacancies.remove(vacancy);
     }
 
-    public String getInformation() {
-        return this.information;
+    public String getCnpj() {
+        return this.cnpj;
     }
 
-    public void setInformation(String information) {
-        this.information = information;
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 
     public int getId() {

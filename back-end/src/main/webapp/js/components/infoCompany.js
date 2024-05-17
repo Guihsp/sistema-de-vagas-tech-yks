@@ -7,7 +7,7 @@ function createCompanyDescription(company) {
     descriptionCompany.innerHTML = `
         <h1>Descrição da Empresa</h1>
         <p id="description">
-            ${company.information}
+            ${company.description}
         </p>
     `;
 

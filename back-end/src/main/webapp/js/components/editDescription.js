@@ -66,12 +66,20 @@ async function createAndAppendDescription() {
             const script = document.createElement('script')
             script.src = 'js/components/headerCandidate.js'
             document.body.appendChild(script)
+            const link = document.createElement('link')
+            link.rel = 'stylesheet'
+            link.href = 'css/components/headerLogin.css'
+            document.head.appendChild(link)
         } else if (localStorage.getItem('company')) {
             window.location.href = './candidateList.html'
         } else {
             const script = document.createElement('script')
             script.src = 'js/components/header.js'
             document.body.appendChild(script)
+            const link = document.createElement('link')
+            link.rel = 'stylesheet'
+            link.href = 'css/components/header.css'
+            document.head.appendChild(link)
         }
     } catch (error) {
         console.error("Erro ao buscar vaga:", error);
