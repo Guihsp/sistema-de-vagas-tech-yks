@@ -15,11 +15,11 @@ function createCompanyDescription(company) {
     return container;
 }
 
-const getCompanyeById = async () => {
+const getCompanyById = async () => {
     let companyId;
 
     if (localStorage.getItem('companyId')) {
-        companyIdId = localStorage.getItem('companyId');
+        companyId = localStorage.getItem('companyId');
     } else if (localStorage.getItem('company')) {
         const company = JSON.parse(localStorage.getItem('company'));
         companyId = company.id;
@@ -56,20 +56,19 @@ const getCompanyeById = async () => {
 const application = async () => {
     const company = await getCompanyById();
     createCompanyDescription(company);
-
     if (!localStorage.getItem('company')) {
         const header = document.createElement('script');
-        header.src = './js/components/headerCompany.js';
+        header.src = './js/components/headerCandidate.js';
         document.body.appendChild(header);
         const infoUser = document.createElement('script');
-        infoUser.src = './js/components/companyInfo.js';
+        infoUser.src = './js/components/companyInfoToCandidate.js';
         document.body.appendChild(infoUser);
     } else {
         const header = document.createElement('script');
         header.src = './js/components/headerCompany.js';
         document.body.appendChild(header);
         const infoUser = document.createElement('script');
-        infoUser.src = './js/components/candidateInfoToCompany.js';
+        infoUser.src = './js/components/companyInfo_copy.js';
         document.body.appendChild(infoUser);
         localStorage.removeItem('user');
         localStorage.setItem('user', JSON.stringify(company));

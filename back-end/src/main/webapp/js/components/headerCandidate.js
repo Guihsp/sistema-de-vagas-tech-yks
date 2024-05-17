@@ -25,25 +25,25 @@ function createHeader() {
                 <li>
                     <ul class="dropdown">
                         <li>
-                            <a href="#" class="nav-link">
+                            <a href="./candidateProfile.html" class="nav-link">
                                 <img src="./assets/profile.svg" alt="">
                                 <span>Perfil do Candidato </span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link">
+                            <a href="./edcandidato.html" class="nav-link">
                                 <img src="./assets/add.svg" alt="adiciona">
                                 <span>Editar Perfil</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link">
+                            <a href="./vagas_candidatadas.html" class="nav-link">
                                 <img src="./assets/list.svg" alt="lista">
                                 <span>Minhas Vagas</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link">
+                            <a class="nav-link" onclick="logout()">
                                 <img src="./assets/logout.svg" alt="logout">
                                 <span>Sair</span>
                             </a>
@@ -69,6 +69,11 @@ const btnMenu = () => {
     btn.addEventListener('click', () => {
         menu.classList.toggle('active');
     });
+}
+
+const logout = () => {
+    localStorage.clear();
+    window.location.href = './index.html';
 }
 
 btnMenu();
