@@ -30,13 +30,13 @@ function createJobCards(vacancies) {
                     <a onclick="redirectToVacancyPage(${job.id})">${job.title}</a>
 
                     <div class="row">
-                        <img src="./assets/location.svg" alt="">
+                        <img src="./assets/Location.svg" alt="Localização">
                         <p>${job.location}</p>
 
-                        <img src="./assets/cash.svg" alt="">
+                        <img src="./assets/cash.svg" alt="Salário">
                         <p>${job.salary}</p>
 
-                        <img src="./assets/briefcase.svg" alt="">
+                        <img src="./assets/briefcase.svg" alt="Empresa">
                         <p>${job.companyName}</p>
 
                     </div>

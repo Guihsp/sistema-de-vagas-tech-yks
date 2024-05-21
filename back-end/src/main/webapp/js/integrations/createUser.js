@@ -12,13 +12,22 @@ function createUser() {
     }
 
     const jsonData = JSON.stringify(userData);
+    localStorage.removeItem("UserEmail");
+    localStorage.setItem("UserEmail", userData.email);
+    getUserByEmail();
+    
+    if(localStorage.getItem("user")){
+        localStorage.clear();
+        alert("Usuário já cadastrado")
+        return null
+    }
 
     const xhr = new XMLHttpRequest();
     const url = "http://localhost:8080/api/createUser";
 
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
-
+    
     xhr.onload = function () {
         if (xhr.status === 200) {
             console.log("Usuário criado com sucesso!");

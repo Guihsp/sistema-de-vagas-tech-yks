@@ -16,10 +16,18 @@ function createCompany() {
 
     const xhr = new XMLHttpRequest();
     const url = "http://localhost:8080/api/createCompany";
-
+    localStorage.removeItem("CompanyEmail");
+    localStorage.setItem("CompanyEmail", userData.email);
+    getCompanyByEmail();
+    if(localStorage.getItem("company") != null){
+        localStorage.clear();
+        alert("Empresa já cadastrada")
+        return
+    }
+    
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
-
+    
     xhr.onload = function () {
         if (xhr.status === 200) {
             localStorage.removeItem("CompanyEmail");

@@ -5,7 +5,7 @@ function createHeader() {
     header.innerHTML = `
     <div class="container">
         <nav>
-            <img src="./assets/logo.svg" alt="logo">
+            <img src="./assets/logo.svg" alt="logo" onclick="./vacanciesPage.html">
 
             <ul class="nav-list">
                 
@@ -73,7 +73,7 @@ const btnMenu = () => {
 
 const logout = () => {
     localStorage.clear();
-    window.location.href = './index.html';
+    window.location.href = './';
 }
 
 btnMenu();
