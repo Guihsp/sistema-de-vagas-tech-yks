@@ -19,21 +19,20 @@
                 <h1>Cadastro Empresa</h1>
 
                 <form>
-
                     <label for="name">Nome:</label>
                     <input type="text" name="name" id="name" required>
 
-                    <label for="emmail">Email:</label>
+                    <label for="email">Email:</label>
                     <input type="text" name="email" id="email" required>
 
                     <label for="password">Senha:</label>
                     <input type="password" name="password" id="password" required>
 
-                    <label for="confirm-passwaord">Confirmar Senha:</label>
+                    <label for="confirm-password">Confirmar Senha:</label>
                     <input type="password" name="confirm-password" id="confirm-password" required>
                 </form>
 
-                <button id="cadastrarButton" >Cadastrar</button>
+                <button id="cadastrarButton">Cadastrar</button>
                 <a href="./cadastroCandidato.html">Sou candidato ></a>
             </div>
         </div>
@@ -42,12 +41,21 @@
     <footer></footer>
 
     <script>
-        localStorage.clear();
+        if (!localStorage.getItem("CompanyEmail")) {
+            localStorage.clear();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const storedCompany = JSON.parse(localStorage.getItem("company"));
+            if (storedCompany) {
+                document.getElementById("name").value = storedCompany.name || "";
+                document.getElementById("email").value = storedCompany.email || "";
+            }
+        });
     </script>
     <script src="./js/components/header.js"></script>
     <script src="./js/components/footer.js"></script>
     <script src="./js/integrations/createCompany.js"></script>
-    
 </body>
 
 </html>

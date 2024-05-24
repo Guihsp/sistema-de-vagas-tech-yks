@@ -5,32 +5,24 @@ function createCompany() {
         password: document.getElementById("password").value,
     };
 
-    password = document.getElementById("password").value
-    confirmPassword = document.getElementById("confirm-password").value
-    if(password != confirmPassword){
-        alert("Senhas não conferem")
-        return
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirm-password").value;
+    
+    if (password != confirmPassword) {
+        alert("Senhas não conferem");
+        return;
     }
 
     const jsonData = JSON.stringify(userData);
 
     const xhr = new XMLHttpRequest();
     const url = "http://localhost:8080/api/createCompany";
-    localStorage.removeItem("CompanyEmail");
-    localStorage.setItem("CompanyEmail", userData.email);
-    getCompanyByEmail();
-    if(localStorage.getItem("company") != null){
-        localStorage.clear();
-        alert("Empresa já cadastrada")
-        return
-    }
     
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
-    
+
     xhr.onload = function () {
         if (xhr.status === 200) {
-            localStorage.removeItem("CompanyEmail");
             localStorage.setItem("CompanyEmail", userData.email);
             getCompanyByEmail();
         } else {
@@ -57,19 +49,17 @@ const getCompanyByEmail = async () => {
         xhr.onload = function () {
             if (xhr.status === 200) {
                 const company = JSON.parse(xhr.responseText);
-                localStorage.removeItem("user");
-                localStorage.removeItem("company");
                 localStorage.setItem("company", JSON.stringify(company));
                 window.location.href = "./editCompany.html";
                 resolve(company);
             } else {
-                console.error("Erro ao buscar usuário:", xhr.responseText);
+                console.error("Erro ao buscar empresa:", xhr.responseText);
                 reject(xhr.responseText);
             }
         };
 
         xhr.onerror = function () {
-            reject("Erro de rede ao buscar usuário.");
+            reject("Erro de rede ao buscar empresa.");
         };
 
         await xhr.send();

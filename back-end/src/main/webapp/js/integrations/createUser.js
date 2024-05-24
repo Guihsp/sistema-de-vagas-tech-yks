@@ -4,34 +4,24 @@ function createUser() {
         email: document.getElementById("email").value,
         password: document.getElementById("senha").value,
     };
-    password = document.getElementById("senha").value
-    confirmPassword = document.getElementById("confirmar-senha").value
+
+    const password = document.getElementById("senha").value;
+    const confirmPassword = document.getElementById("confirmar-senha").value;
+    
     if (password != confirmPassword) {
-        alert("Senhas não conferem")
-        return
+        alert("Senhas não conferem");
+        return;
     }
 
     const jsonData = JSON.stringify(userData);
-    localStorage.removeItem("UserEmail");
-    localStorage.setItem("UserEmail", userData.email);
-    getUserByEmail();
-    
-    if(localStorage.getItem("user")){
-        localStorage.clear();
-        alert("Usuário já cadastrado")
-        return null
-    }
-
     const xhr = new XMLHttpRequest();
     const url = "http://localhost:8080/api/createUser";
 
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
-    
+
     xhr.onload = function () {
         if (xhr.status === 200) {
-            console.log("Usuário criado com sucesso!");
-            localStorage.removeItem("UserEmail");
             localStorage.setItem("UserEmail", userData.email);
             getUserByEmail();
         } else {
@@ -57,12 +47,10 @@ const getUserByEmail = async () => {
 
         xhr.onload = function () {
             if (xhr.status === 200) {
-                const pessoa = JSON.parse(xhr.responseText);
-                localStorage.removeItem("user");
-                localStorage.removeItem("company");
-                localStorage.setItem("user", JSON.stringify(pessoa));
+                const user = JSON.parse(xhr.responseText);
+                localStorage.setItem("user", JSON.stringify(user));
                 window.location.href = "./edcandidato.html";
-                resolve(pessoa);
+                resolve(user);
             } else {
                 console.error("Erro ao buscar usuário:", xhr.responseText);
                 reject(xhr.responseText);

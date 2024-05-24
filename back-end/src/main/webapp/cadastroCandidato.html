@@ -15,7 +15,6 @@
     <header></header>
 
     <section class="section-cadastro">
-        
         <form class="form">
             <h1>Cadastro candidato</h1>
 
@@ -43,16 +42,24 @@
                 Cadastrar
             </button>
 
-
             <a href="./cadastro_empresa.html">Sou empresa ></a>
         </form>
     </section>
 
-    
     <footer></footer>
     
     <script>
-        localStorage.clear();
+        if (!localStorage.getItem("UserEmail")) {
+            localStorage.clear();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const storedUser = JSON.parse(localStorage.getItem("user"));
+            if (storedUser) {
+                document.getElementById("nome").value = storedUser.name || "";
+                document.getElementById("email").value = storedUser.email || "";
+            }
+        });
     </script>
     <script src="./js/components/header.js"></script>
     <script src="./js/components/footer.js"></script>
