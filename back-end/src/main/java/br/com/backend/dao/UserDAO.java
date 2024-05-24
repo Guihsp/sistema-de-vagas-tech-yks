@@ -59,24 +59,26 @@ public class UserDAO {
     }
 
     public UserModel getUserByEmail(String email) {
-        UserDAO userDAO = new UserDAO(url, userBd, password);
-        UserModel user = new UserModel();
-        String postgresql = "SELECT * FROM \"user\" WHERE email = ?";
-        try (PreparedStatement ps = userDAO.connection.prepareStatement(postgresql, Statement.RETURN_GENERATED_KEYS)) {
+        UserModel user = null;
+        String query = "SELECT * FROM \"user\" WHERE email = ?";
+        try (Connection connection = DriverManager.getConnection(url, userBd, password);
+             PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setString(1, email);
-            ResultSet rs = ps.executeQuery();
 
-            rs.next();
-            user.setId(rs.getInt("id"));
-            user.setName(rs.getString("name"));
-            user.setEmail(rs.getString("email"));
-            user.setInformation(rs.getString("information"));
-            user.setPhoneNumber(rs.getString("phoneNumber"));
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    user = new UserModel();
+                    user.setId(rs.getInt("id"));
+                    user.setName(rs.getString("name"));
+                    user.setEmail(rs.getString("email"));
+                }
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return user;
     }
+
 
     public UserModel getUserById(int id) {
         UserDAO userDAO = new UserDAO(url, userBd, password);

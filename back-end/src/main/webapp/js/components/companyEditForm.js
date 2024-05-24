@@ -1,53 +1,50 @@
-const createForm = () => {
+function createForm() {
     const infoCompany = localStorage.getItem("company");
     const parsedInfoCompany = JSON.parse(infoCompany);
-    const form = `
-    <form class="form">
-        <div class="form-group">
-            <label for="companyName">* Nome da Empresa</label>
-            <input type="text" name="companyName" id="companyName" placeholder="Ex: Tech Yks" required>
-        </div>
+    const form = document.createElement('form');
+    form.className = 'form';
+    form.innerHTML = `
+    <div class="form-group">
+        <label for="companyName">* Nome da Empresa</label>
+        <input type="text" name="companyName" id="companyName" placeholder="Ex: Tech Yks" required>
+    </div>
 
-        <div class="form-group">
-            <label for="companyCnpj">* CNPJ</label>
-            <input type="text" name="companyCnpj" id="companyCnpj" placeholder="Ex: 00.000.000/0000-00" required>
-        </div>
+    <div class="form-group">
+        <label for="companyCnpj">* CNPJ</label>
+        <input type="text" name="companyCnpj" id="companyCnpj" placeholder="Ex: 00.000.000/0000-00" required>
+    </div>
 
-        <div class="form-group">
-            <label for="companyEmail">* Email</label>
-            <input type="email" name="companyEmail" id="companyEmail" placeholder="Ex: techyks@gmail.com" required>
-        </div>
+    <div class="form-group">
+        <label for="companyEmail">* Email</label>
+        <input type="email" name="companyEmail" id="companyEmail" placeholder="Ex: techyks@gmail.com" required>
+    </div>
 
-        <div class="form-group">
-            <label for="companyAddress">* Endereço</label>
-            <input type="text" name="companyAddress" id="companyAddress" placeholder="Ex: São Paulo - SP" required>
-        </div>
+    <div class="form-group">
+        <label for="companyAddress">* Endereço</label>
+        <input type="text" name="companyAddress" id="companyAddress" placeholder="Ex: São Paulo - SP" required>
+    </div>
 
+    <div class="form-group">
+        <label for="companyDescription">* Descrição da Empresa</label>
+        <textarea name="companyDescription" id="companyDescription" cols="30" rows="8" maxlength="950" placeholder="Fale um pouco sobre a empresa" required></textarea>
+    </div>
 
-        <div class="form-group">
-            <label for="companyDescription">* Descrição da Empresa</label>
-            <textarea name="companyDescription" id="companyDescription" cols="30" rows="8" maxlength="950" placeholder="Fale um pouco sobre a empresa" required></textarea>
-        </div>
-
-        <button class="edit-btn" onclick="updateCompany()">Salvar</button>
-    </form>
+    <button type="button" class="edit-btn" id="saveButton">Salvar</button>
     `;
 
-    const foormInHtml = document.querySelector('.edit-form');
-    foormInHtml.innerHTML = form;
-
-
     if (parsedInfoCompany) {
-        document.querySelector('#companyName').value = parsedInfoCompany.name ? parsedInfoCompany.name : "";
-        document.querySelector('#companyCnpj').value = parsedInfoCompany.cnpj ? parsedInfoCompany.cnpj : "";
-        document.querySelector('#companyEmail').value = parsedInfoCompany.email ? parsedInfoCompany.email : "";
-        document.querySelector('#companyAddress').value = parsedInfoCompany.location ? parsedInfoCompany.location : "";
-        document.querySelector('#companyDescription').value = parsedInfoCompany.description ? parsedInfoCompany.description : "";
+        form.querySelector('#companyName').value = parsedInfoCompany.name || "";
+        form.querySelector('#companyCnpj').value = parsedInfoCompany.cnpj || "";
+        form.querySelector('#companyEmail').value = parsedInfoCompany.email || "";
+        form.querySelector('#companyAddress').value = parsedInfoCompany.location || "";
+        form.querySelector('#companyDescription').value = parsedInfoCompany.description || "";
     }
+
     return form;
 }
 
-createForm();
+const formElement = createForm();
+document.querySelector('.edit-form').appendChild(formElement);
 
 const updateCompany = async () => {
     const name = document.querySelector('#companyName').value;
@@ -76,6 +73,8 @@ const updateCompany = async () => {
 
     xhr.onload = function () {
         if (xhr.status === 200) {
+            const company = xhr.responseText;
+            console.log(company);
             console.log("Empresa atualizada com sucesso!");
             infoCompany = {
                 id: parsedInfoCompany.id,
@@ -87,14 +86,22 @@ const updateCompany = async () => {
             }
             localStorage.removeItem("company");
             localStorage.setItem("company", JSON.stringify(infoCompany));
-
             window.location.href = "./editCompany.html";
+        } else {
+            console.error("Erro ao atualizar empresa:", xhr.responseText);
         }
-    }
+    };
 
     xhr.onerror = function () {
         console.error("Erro de conexão.");
-    }
-
+    };
+    
     xhr.send(jsonData);
 }
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelector('#saveButton').addEventListener('click', (event) => {
+        event.preventDefault();
+        updateCompany();
+    });
+});

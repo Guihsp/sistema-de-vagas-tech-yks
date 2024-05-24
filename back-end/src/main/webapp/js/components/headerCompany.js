@@ -73,7 +73,7 @@ const btnMenu = () => {
 
 const logout = () => {
     localStorage.clear();
-    window.location.href = './l';
+    window.location.href = './';
 }
 
 btnMenu();
