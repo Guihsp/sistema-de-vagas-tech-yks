@@ -14,10 +14,14 @@ function createinfoCompany(vacancy) {
                 </div>
             </div>
 
-            <a href="#" class="btn-candidatar">Candidate-se</a>
+            <a href="#" class="btn-candidatar" onclick="companyPage()">Ver perfil da empresa</a>
 
         </div>
     `;
 
     return infoCompany;
+}
+
+const companyPage = async () => {
+    window.location.href = './companyProfile.html'
 }

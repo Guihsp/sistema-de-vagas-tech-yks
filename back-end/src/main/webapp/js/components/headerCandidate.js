@@ -5,7 +5,7 @@ function createHeader() {
     header.innerHTML = `
     <div class="container">
         <nav>
-            <img src="./assets/logo.svg" alt="logo" onclick="./vacanciesPage.html">
+            <img src="./assets/logo.svg" alt="logo" onclick="vacancyPage()">
 
             <ul class="nav-list">
                 
@@ -77,3 +77,7 @@ const logout = () => {
 }
 
 btnMenu();
+
+const vacancyPage = () => {
+    window.location.href = './vacanciesPage.html';
+}

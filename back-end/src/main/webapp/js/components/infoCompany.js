@@ -9,6 +9,14 @@ function createCompanyDescription(company) {
         <p id="description">
             ${company.description}
         </p>
+        <h1>Contato</h1>
+        <p id="description">
+            ${company.email}
+        </p>
+        <h1>CNPJ</h1>
+        <p id="description">
+            ${company.cnpj}
+        </p>
     `;
 
     container.appendChild(descriptionCompany);
@@ -63,6 +71,8 @@ const application = async () => {
         const infoUser = document.createElement('script');
         infoUser.src = './js/components/companyInfoToCandidate.js';
         document.body.appendChild(infoUser);
+        localStorage.removeItem('company');
+        localStorage.setItem('company', JSON.stringify(company));
     } else {
         const header = document.createElement('script');
         header.src = './js/components/headerCompany.js';
@@ -70,8 +80,8 @@ const application = async () => {
         const infoUser = document.createElement('script');
         infoUser.src = './js/components/companyInfo_copy.js';
         document.body.appendChild(infoUser);
-        localStorage.removeItem('user');
-        localStorage.setItem('user', JSON.stringify(company));
+        localStorage.removeItem('company');
+        localStorage.setItem('company', JSON.stringify(company));
     }
 }
 

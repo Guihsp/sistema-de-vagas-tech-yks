@@ -70,6 +70,7 @@ async function createAndAppendDescription() {
             link.rel = 'stylesheet'
             link.href = 'css/components/headerLogin.css'
             document.head.appendChild(link)
+            localStorage.setItem("companyId", vacancy.companyId)
         } else if (localStorage.getItem('company')) {
             window.location.href = './candidateList.html'
         } else {
