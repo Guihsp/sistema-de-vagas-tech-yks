@@ -32,7 +32,7 @@
                         <label for="">Senha:</label>
                         <input type="password" id="password" name="senha" size="20">                        
                     </div>
-                    <a href="" class="link-password">Esqueceu a senha?</a>
+                    <a onclick="esqueciSenha()" class="link-password">Esqueceu a senha?</a>
                     
                 </form>
 
@@ -50,6 +50,12 @@
     </section>
 
     <footer></footer>
+
+    <script>
+        const esqueciSenha = () => {
+            alert('Lamentamos que você perdeu sua senha, entre em contato com o suporte para recupera-la.');
+        }
+    </script>
 
     <script>
         localStorage.clear();

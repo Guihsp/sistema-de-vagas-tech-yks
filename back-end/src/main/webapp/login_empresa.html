@@ -28,7 +28,7 @@
                     <input type="password" id="password" name="senha">
                 </div>
 
-                <a href="" class="link-password">Esqueceu a senha?</a>
+                <a onclick="esqueciSenha()" class="link-password">Esqueceu a senha?</a>
 
                 <button id="entrar" class="enter-button btn" type="submit">
                     Entrar
@@ -45,6 +45,12 @@
 </section>
 
 <footer></footer>
+
+<script>
+    const esqueciSenha = () => {
+        alert('Lamentamos que você perdeu sua senha, entre em contato com o suporte para recupera-la.');
+    }
+</script>
 
 <script>
     localStorage.clear();
