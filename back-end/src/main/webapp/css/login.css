@@ -91,6 +91,9 @@ form .link-password{
 .register-button {
     background-color: var(--quaternary-color);
     color: var(--tertiary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .link-company {
